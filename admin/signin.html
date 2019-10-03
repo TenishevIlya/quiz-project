@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru/en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Admin panel</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+	<!-- <link rel="stylesheet" href="node_modules/normalize.css"> -->
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	  <main>	
+		<div class="log-in bg-light shadow">
+		    <form>
+			    <div class="form-group">
+				    <h2 class="form-heading-h2">Admin panel</h2>
+				    <label for="email" class="required font-weight-bold">Email</label>
+				    <input type="email" class="form-control signin-input" placeholder="Enter your email" id="email">
+				    <label for="password" class="required font-weight-bold">Password</label>
+				    <input type="password" class="form-control signin-input" placeholder="Your password" id="password">
+				    <span class="text-danger" id="mustBe">*Обязательно к заполнению</span>
+				    <div class="load" id="spinner">
+				        <img src="C:/Универ/Codemasters/project/assets/Spin-1s-60px.svg">
+				    </div>
+				    <div class="row-container">
+				        <div class="form-check">	
+					        <input type="checkbox" class="form-check-input" id="defaultCheck1">
+					            <label class="form-check-label" for="defaultCheck1">
+				                    Remember me
+				                </label>
+			            </div>  
+				        <button class="btn btn-outline-primary" type="submit" id="sign" onclick="return false;">Sign In</button>
+				    </div>
+			    </div>	
+			</form>	
+	    </div>
+    </main>
+    <script src="script.js"></script>	
+</body>
+</html>

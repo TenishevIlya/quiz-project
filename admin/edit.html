@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru/en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  	<title>Добавление вопроса</title>
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link rel="stylesheet" href="node_modules/normalize.css">
+  	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body class="all-body-content">
+    <nav class="bg-light">
+        <div class="nav-wrap">
+            <a href="#" class="logo">Admin panel</a>
+            <div class="nav-list">
+                <a href="index.html" class="text-muted nav-wrap-link"><span>Главная</span></a>
+                <a href="question-table.html" class="text-muted nav-wrap-link"><span>Таблица вопросов</span></a>
+                <a href="edit.html" class="text-muted nav-wrap-link"><span>Добавить вопрос</span></a>
+                <a href="#" class="text-muted nav-wrap-link"><span>Мои тесты</span></a>
+                <a href="#" class="text-muted nav-wrap-link"><span>Настройки</span></a>
+            </div>
+            <a href="signin.html" class="btn btn-outline-primary log-out"> Log out</a>
+        </div>  
+    </nav>
+    <main>
+        <div class="container edit-container">
+            <h2>Добавление вопроса</h2>
+            <hr>	
+            <form>
+                <div class="col-container">
+                  	<label for="question" class="font-weight-bold">Вопрос:</label>
+                  	<textarea class="form-control" id="question"></textarea>
+                </div>
+                <hr>
+                <div class="col-container add">
+                    <label for="check-form" class="font-weight-bold">Прикрепить теги:</label> 	
+                	  <div class="form-check" id="check-form">	
+                  		  <input type="checkbox" class="form-check-input" id="first">
+                  		  <label class="form-check-label" for="first">
+                  	        #first
+                  	   </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="second">
+                		    <label class="form-check-label" for="second">
+                	          #second
+                	      </label>
+            	      </div> 
+              	    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="third">
+              		      <label class="form-check-label" for="third">
+              	            #third
+              	        </label>
+              	    </div>
+                </div>
+                <hr>	
+                <div class="row-container">
+              	    <div class="col-container answ"> 
+                	      <label for="answList" class="font-weight-bold">Виды ответов:</label>
+                	      <select class="form-control">
+                  	        <option selected>Единственный ответ</option>
+                  	        <option>Множественный ответ</option>	
+                  	        <option>Текстовый</option>
+                	      </select>	
+              	    </div>
+              	    <div class="col-container answ"> 
+                	      <label for="answer" class="font-weight-bold">Ответ:</label>
+                	      <textarea id="answer" class="form-control"></textarea>	
+              	    </div>
+                </div>
+                <hr>
+                <!-- <a href="#" class="btn btn-outline-primary">Добавить вопрос</a> -->
+                <button type="submit" class="btn btn-outline-primary submit-btn">Добавить вопрос</button>
+            </form>
+        </div>
+    </main>	
+</body>
+</html>

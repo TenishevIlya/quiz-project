@@ -1,0 +1,146 @@
+$custom-grey: #D8D8D8;
+$custom-green: #58FA58;
+$white-color: #FFFFFF;
+$custom-blue: #0080FF;
+$font: 'Montserrat', sans-serif;
+$heading-font: 'Open Sans', sans-serif;
+
+
+body, input, button, a, span {
+  font-family: $font;	
+}
+h1 {
+  font-family: $heading-font;	
+}
+
+/* mixins */
+@mixin question-btn() {
+  border: 2px solid $custom-grey;
+  background-color: $white-color;
+  padding: 10px;
+  border-radius: 4px;	
+}
+@mixin col-container() {
+  display: flex;
+  flex-direction: column;	
+}
+@mixin check-items() {
+  position: absolute;
+  margin-left: -1em;
+  width: 0.6em;
+  height: 0.6em;
+  margin-top: 0.15em;
+  background-color: $white-color;
+  border: 2px solid $custom-blue;
+}
+/****************/
+
+.question {
+  width: 500px;
+  margin: auto;
+  	
+  .input-text {
+    width: 100%;
+    padding: 10px 0 10px 10px;	
+    border: 1px solid $custom-grey;
+    border-radius: 7px;
+    outline: none;
+    box-sizing: border-box;
+  
+    &:focus {
+      border: 2px solid $custom-blue;
+      box-shadow: 0 0 5px rgba(0,0,0,0.5);	
+    }
+  }
+}
+.next-btn {
+  @include question-btn();
+  flex-grow: 1;
+
+  &:hover {
+    background-color: $custom-green;
+    border: 1px solid $custom-green;   	
+  }
+
+  &:active {
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    outline: none;
+  }	
+}
+.back-btn {
+  @include question-btn();
+  flex-grow: 1;
+
+  &:hover{
+    background-color: $custom-grey;
+    border: 1px solid $custom-grey; 	
+  }	
+
+  &:active {
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    outline: none;
+  }
+}
+.skip-btn {
+  @include question-btn();
+}
+.question-navigation {
+  display: flex;
+  justify-content: space-between; 
+  margin-top: 10px;	
+  align-items: center;
+}
+.question-content {
+  font-size: 15px;	
+}
+.question-number {
+  flex-grow: 1;
+  text-align: center;	
+}
+
+
+/* radio-public */
+.radio-answers, .checkbox-answers {
+  @include col-container();
+
+  .radio-row, .checkbox-row{
+    padding: 15px 0 15px 1.2em;
+    border-top: 1px solid $custom-grey;
+    border-bottom: 1px solid $custom-grey;
+    
+    &:hover {
+      background-color: $custom-grey;	
+    }
+  }	
+
+  label:first-of-type, label:last-of-type {
+    border: none;	
+  }
+}
+
+/**************/
+
+
+/* checkbox-public */
+.check-input, .radio-input {
+  -webkit-appearance: none;
+  position: absolute;
+  
+  &:checked + .check-box, &:checked + .radi_o {
+    background-color: #4A90E2;
+  	background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fcheck.svg?1550563475518);
+  } 
+}
+.check-box {
+  @include check-items();		
+}
+.radi_o {
+  @include check-items();	
+  border-radius: 0.6em; 
+}
+
+@media (max-width: 570px) {
+  .question {
+    width: 100%;	
+  }	
+}

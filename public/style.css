@@ -1,0 +1,138 @@
+body, input, button, a, span {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* mixins */
+/****************/
+.question {
+  width: 500px;
+  margin: auto;
+}
+.question .input-text {
+  width: 100%;
+  padding: 10px 0 10px 10px;
+  border: 1px solid #D8D8D8;
+  border-radius: 7px;
+  outline: none;
+  box-sizing: border-box;
+}
+.question .input-text:focus {
+  border: 2px solid #0080FF;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.next-btn {
+  border: 2px solid #D8D8D8;
+  background-color: #FFFFFF;
+  padding: 10px;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+.next-btn:hover {
+  background-color: #58FA58;
+  border: 1px solid #58FA58;
+}
+.next-btn:active {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.back-btn {
+  border: 2px solid #D8D8D8;
+  background-color: #FFFFFF;
+  padding: 10px;
+  border-radius: 4px;
+  flex-grow: 1;
+}
+.back-btn:hover {
+  background-color: #D8D8D8;
+  border: 1px solid #D8D8D8;
+}
+.back-btn:active {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.skip-btn {
+  border: 2px solid #D8D8D8;
+  background-color: #FFFFFF;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.question-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.question-content {
+  font-size: 15px;
+}
+
+.question-number {
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* radio-public */
+.radio-answers, .checkbox-answers {
+  display: flex;
+  flex-direction: column;
+}
+.radio-answers .radio-row, .radio-answers .checkbox-row, .checkbox-answers .radio-row, .checkbox-answers .checkbox-row {
+  padding: 15px 0 15px 1.2em;
+  border-top: 1px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
+}
+.radio-answers .radio-row:hover, .radio-answers .checkbox-row:hover, .checkbox-answers .radio-row:hover, .checkbox-answers .checkbox-row:hover {
+  background-color: #D8D8D8;
+}
+.radio-answers label:first-of-type, .radio-answers label:last-of-type, .checkbox-answers label:first-of-type, .checkbox-answers label:last-of-type {
+  border: none;
+}
+
+/**************/
+/* checkbox-public */
+.check-input, .radio-input {
+  -webkit-appearance: none;
+  position: absolute;
+}
+.check-input:checked + .check-box, .check-input:checked + .radi_o, .radio-input:checked + .check-box, .radio-input:checked + .radi_o {
+  background-color: #4A90E2;
+  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fcheck.svg?1550563475518);
+}
+
+.check-box {
+  position: absolute;
+  margin-left: -1em;
+  width: 0.6em;
+  height: 0.6em;
+  margin-top: 0.15em;
+  background-color: #FFFFFF;
+  border: 2px solid #0080FF;
+}
+
+.radi_o {
+  position: absolute;
+  margin-left: -1em;
+  width: 0.6em;
+  height: 0.6em;
+  margin-top: 0.15em;
+  background-color: #FFFFFF;
+  border: 2px solid #0080FF;
+  border-radius: 0.6em;
+}
+
+@media (max-width: 570px) {
+  .question {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

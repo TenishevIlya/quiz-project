@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru/en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  	<title>Таблица вопросов</title>
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
+    <link rel="stylesheet" href="node_modules/normalize.css">
+  	<link rel="stylesheet" href="style.css">
+</head>
+<body class="all-body-content">
+    <nav class="bg-light">
+        <div class="nav-wrap">
+            <a href="#" class="logo">Admin panel</a>
+            <div class="nav-list">
+                <a href="index.html" class="text-muted nav-wrap-link"><span>Главная</span></a>
+                <a href="question-table.html" class="text-muted nav-wrap-link"><span>Таблица вопросов</span></a>
+                <a href="edit.html" class="text-muted nav-wrap-link"><span>Добавить вопрос</span></a>
+                <a href="#" class="text-muted nav-wrap-link"><span>Мои тесты</span></a>
+                <a href="#" class="text-muted nav-wrap-link"><span>Настройки</span></a>
+            </div>
+            <a href="signin.html" class="btn btn-outline-primary log-out"> Log out</a>
+        </div>  
+    </nav>
+    <main>
+    	  <div class="container">
+        	  <h1>Таблица вопросов</h1>
+        	  <a href="edit.html" class="btn btn-outline-primary rounded-pill add-quest"><i class="fas fa-plus"></i>Добавить вопрос</a>  
+        	  <table class="table table-bordered table-responsive">
+      	    <thead>
+      	      <tr>
+        	        <th scope="col">id</th>
+        	        <th scope="col">Вопрос</th>
+        	        <th scope="col">Дата</th>
+        	        <th scope="col">Ответ</th>
+        	        <th scope="col">Действия</th>
+      	      </tr>
+      	    </thead>
+              <tbody>
+      	      <tr>
+      	          <th scope="row">1</th>
+      	          <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus provident quo similique, aperiam pariatur autem, accusantium rerum excepturi accusamus odio.
+                  </td>
+      	          <td>22.09.2019</td>
+      	          <td>true</td>
+      	          <td>
+                      <a href="#" class="btn btn-outline-primary rounded-pill question-table-link">
+                          <i class="far fa-edit"></i>
+                      </a>
+                      <a href="#" class="btn btn-outline-danger rounded-pill question-table-link">
+                          <i class="far fa-trash-alt"></i>
+                      </a>
+                  </td>
+      	      </tr>
+      	      <tr>
+        	        <th scope="row">2</th>
+        	        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos accusamus voluptatem cum adipisci! Vitae dolor, excepturi. Dolorum a eos enim.</td>
+        	        <td>21.09.2019</td>
+        	        <td>false</td>
+        	        <td>
+                      <a href="#" class="btn btn-outline-primary rounded-pill question-table-link">
+                          <i class="far fa-edit"></i>
+                      </a><a href="#" class="btn btn-outline-danger rounded-pill question-table-link">
+                          <i class="far fa-trash-alt"></i>
+                      </a>
+                  </td>
+      	      </tr>
+      	      <tr>
+        	        <th scope="row">3</th>
+        	        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum perferendis neque atque doloribus provident? Ab esse porro nulla, soluta similique!</td>
+        	        <td>22.09.2019</td>
+        	        <td>Current</td>
+        	        <td>
+                      <a href="#" class="btn btn-outline-primary rounded-pill question-table-link">
+                          <i class="far fa-edit"></i>
+                      </a>
+                      <a href="#" class="btn btn-outline-danger rounded-pill question-table-link">
+                          <i class="far fa-trash-alt"></i>
+                      </a>
+                  </td>
+      	      </tr>
+      	      <tr>
+        	        <th scope="row">4</th>
+        	        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed in commodi, impedit possimus placeat sunt a assumenda, voluptate iste voluptatem.</td>
+        	        <td>23.09.2019</td>
+        	        <td>Promise</td>
+        	        <td>
+                      <a href="#" class="btn btn-outline-primary rounded-pill question-table-link">
+                          <i class="far fa-edit"></i>
+                      </a>
+                      <a href="#" class="btn btn-outline-danger rounded-pill question-table-link">
+                          <i class="far fa-trash-alt"></i>
+                      </a>
+                  </td>
+      	      </tr>
+              </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
