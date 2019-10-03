@@ -1,3 +1,5 @@
+// так, переменные придется ещё поучиться именновать,
+// как насчёт color-primary, color-border, header-bg-color и т.д.
 $custom-grey: #D8D8D8;
 $custom-green: #58FA58;
 $white-color: #FFFFFF;
@@ -5,7 +7,7 @@ $custom-blue: #0080FF;
 $font: 'Montserrat', sans-serif;
 $heading-font: 'Open Sans', sans-serif;
 
-
+/*a, span возьмут от body*/
 body, input, button, a, span {
   font-family: $font;	
 }
@@ -13,6 +15,8 @@ h1 {
   font-family: $heading-font;	
 }
 
+// Почему нет разбиения на файлы?
+// миксины, переменные, отдельные виджеты?
 /* mixins */
 @mixin question-btn() {
   border: 2px solid $custom-grey;
@@ -128,12 +132,15 @@ h1 {
   
   &:checked + .check-box, &:checked + .radi_o {
     background-color: #4A90E2;
+    // не, будь добр тырить всё в assets, это плохая практика
   	background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fcheck.svg?1550563475518);
   } 
 }
 .check-box {
   @include check-items();		
 }
+
+// оч плохое название
 .radi_o {
   @include check-items();	
   border-radius: 0.6em; 

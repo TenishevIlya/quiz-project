@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--здесь на выбор lang="ru" или lang="en"-->
 <html lang="ru/en">
 <head>
     <meta charset="utf-8">
@@ -7,19 +8,23 @@
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
     <link rel="stylesheet" href="node_modules/normalize.css">
+<!--type=text/css устарело-->
   	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+<!--all-body-content плохо, лучше .site-wrapper например, что-то абстрактное-->
 <body class="all-body-content">
     <nav class="bg-light">
         <div class="nav-wrap">
             <a href="#" class="logo">Admin panel</a>
             <div class="nav-list">
+                <!--каждый span на отдельной строке-->
                 <a href="index.html" class="text-muted nav-wrap-link"><span>Главная</span></a>
                 <a href="question-table.html" class="text-muted nav-wrap-link"><span>Таблица вопросов</span></a>
                 <a href="edit.html" class="text-muted nav-wrap-link"><span>Добавить вопрос</span></a>
                 <a href="#" class="text-muted nav-wrap-link"><span>Мои тесты</span></a>
                 <a href="#" class="text-muted nav-wrap-link"><span>Настройки</span></a>
             </div>
+            <!--лишний пробел перед Log out-->
             <a href="signin.html" class="btn btn-outline-primary log-out"> Log out</a>
         </div>  
     </nav>
@@ -56,7 +61,8 @@
                 </div>
                 <hr>	
                 <div class="row-container">
-              	    <div class="col-container answ"> 
+              	    <div class="col-container answ">
+                          <!--answList плохое сокращение, лучше answerList-->
                 	      <label for="answList" class="font-weight-bold">Виды ответов:</label>
                 	      <select class="form-control">
                   	        <option selected>Единственный ответ</option>

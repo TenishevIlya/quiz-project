@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<!--Табы прыгают в этом html файле, юзай форматирование кода-->
 	  <main>	
 		<div class="log-in bg-light shadow">
 		    <form>
@@ -21,6 +22,8 @@
 				    <input type="password" class="form-control signin-input" placeholder="Your password" id="password">
 				    <span class="text-danger" id="mustBe">*Обязательно к заполнению</span>
 				    <div class="load" id="spinner">
+						<!--жестко конечно, все пути должны быть всегда относительные в проекте-->
+						<!--за подпапку Универ вообще обидно:)-->
 				        <img src="C:/Универ/Codemasters/project/assets/Spin-1s-60px.svg">
 				    </div>
 				    <div class="row-container">
@@ -29,7 +32,8 @@
 					            <label class="form-check-label" for="defaultCheck1">
 				                    Remember me
 				                </label>
-			            </div>  
+			            </div>
+						<!--onclick не пишут в html, через js пишут event.stopPropagation() event.preventDefault() при клике если надо-->
 				        <button class="btn btn-outline-primary" type="submit" id="sign" onclick="return false;">Sign In</button>
 				    </div>
 			    </div>	
