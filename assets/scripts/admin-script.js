@@ -1,4 +1,5 @@
-function loading(){	
+function loading(event){	
+  event.preventDefault()	
   document.getElementById("spinner").classList.add('show');
   setTimeout('location.replace("index.html")', 3000);	
 }

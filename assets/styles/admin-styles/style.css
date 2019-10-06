@@ -56,13 +56,6 @@ body, input, button, a, span {
 
 /* index.html */
 .nav-wrap {
-  /* display: grid;
-  grid-template-columns: 10vw 1fr 8vw;
-  width: 80%;
-  margin-left: 10%;
-  align-items: center; 
-  padding: 1vh 0;
-  margin-bottom: 10vh; */
   display: flex;
   flex-direction: row;
   margin: 0 10%;
@@ -95,10 +88,10 @@ body, input, button, a, span {
 .main-table-link {
   width: 48%;
   height: 25vh;
-  text-align: center;
+  text-align: left;
 }
 .col-container .second-row-link {
-  width: 30%;
+  width: 30%; 
 }
 .index-content {
   margin-bottom: 2vh;
@@ -167,27 +160,8 @@ body, input, button, a, span {
     margin-top: 5vh;
   }
   /***********************/ 
-  
-  
-  /* header for all */
-  /* .nav-wrap {
-    grid-template-areas: "firstA" "secondDiv" "thirdA";
-    grid-template-rows: 60px 150px 60px;
-    grid-template-columns: 1fr;
-  }
-  .nav-list {
-    display: grid;
-    grid-gap: 1vh;
-  }
-  .logo {
-    grid-area: firstA;  
-  }
-  .nav-list {
-    grid-area: secondDiv;  
-  }
-  .log-out {
-    grid-area: thirdA;  
-  } */
+
+
   .nav-wrap {
     display: flex;
     flex-direction: column;
@@ -212,4 +186,17 @@ body, input, button, a, span {
     width: 100%; 
   }
   /***********************/
+}
+
+@media (max-width: 994px) {
+  .row-container {
+    flex-direction: column;
+  } 
+  .main-table-link, .row-container .second-row-link {
+    width: 80%; 
+    margin-top: 5vh;
+  }    
+  .index-header {
+    text-align: center;
+  } 
 }
