@@ -1,39 +1,13 @@
-$custom-grey: #D8D8D8;
-$custom-green: #58FA58;
-$white-color: #FFFFFF;
-$custom-blue: #0080FF;
-$font: 'Montserrat', sans-serif;
-$heading-font: 'Open Sans', sans-serif;
+@import 'mixins/_mixins.scss';
+@import 'mixins/_variables.scss';
 
-
-body, input, button, a, span {
-  font-family: $font;	
+body, input, button {
+  font-family: $main-font;	
 }
 h1 {
   font-family: $heading-font;	
 }
 
-/* mixins */
-@mixin question-btn() {
-  border: 2px solid $custom-grey;
-  background-color: $white-color;
-  padding: 10px;
-  border-radius: 4px;	
-}
-@mixin col-container() {
-  display: flex;
-  flex-direction: column;	
-}
-@mixin check-items() {
-  position: absolute;
-  margin-left: -1em;
-  width: 0.6em;
-  height: 0.6em;
-  margin-top: 0.15em;
-  background-color: $white-color;
-  border: 2px solid $custom-blue;
-}
-/****************/
 
 .question {
   width: 500px;
@@ -42,13 +16,13 @@ h1 {
   .input-text {
     width: 100%;
     padding: 10px 0 10px 10px;	
-    border: 2px solid $custom-grey;
+    border: 2px solid $primary-color;
     border-radius: 7px;
     outline: none;
     box-sizing: border-box;
   
     &:focus {
-      border: 2px solid $custom-blue;
+      border: 2px solid $active-input-color;
       box-shadow: 0 0 5px rgba(0,0,0,0.5);	
     }
   }
@@ -58,8 +32,8 @@ h1 {
   flex-grow: 1;
 
   &:hover {
-    background-color: $custom-green;
-    border: 1px solid $custom-green;   	
+    background-color: $success-color;
+    border: 2px solid $success-color;   	
   }
 
   &:active {
@@ -72,8 +46,8 @@ h1 {
   flex-grow: 1;
 
   &:hover{
-    background-color: $custom-grey;
-    border: 1px solid $custom-grey; 	
+    background-color: $primary-color;
+    border: 2px solid $primary-color;	
   }	
 
   &:active {
@@ -105,11 +79,12 @@ h1 {
 
   .radio-row, .checkbox-row{
     padding: 15px 0 15px 1.2em;
-    border-top: 1px solid $custom-grey;
-    border-bottom: 1px solid $custom-grey;
+    border-top: 1px solid $primary-color;
+    border-bottom: 1px solid $primary-color;
     
     &:hover {
-      background-color: $custom-grey;	
+      background-color: $primary-color;	
+
     }
   }	
 
@@ -126,15 +101,15 @@ h1 {
   -webkit-appearance: none;
   position: absolute;
   
-  &:checked + .check-box, &:checked + .radi_o {
+  &:checked + .check-box, &:checked + .radio-variant {
     background-color: #4A90E2;
-  	background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fcheck.svg?1550563475518);
+  	background-image: url(../../images/check.svg); 
   } 
 }
 .check-box {
   @include check-items();		
 }
-.radi_o {
+.radio-variant {
   @include check-items();	
   border-radius: 0.6em; 
 }

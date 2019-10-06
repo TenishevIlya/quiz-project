@@ -1,4 +1,4 @@
-body, input, button, a, span {
+body, input, button {
   font-family: "Montserrat", sans-serif;
 }
 
@@ -6,8 +6,6 @@ h1 {
   font-family: "Open Sans", sans-serif;
 }
 
-/* mixins */
-/****************/
 .question {
   width: 500px;
   margin: auto;
@@ -34,7 +32,7 @@ h1 {
 }
 .next-btn:hover {
   background-color: #58FA58;
-  border: 1px solid #58FA58;
+  border: 2px solid #58FA58;
 }
 .next-btn:active {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -50,7 +48,7 @@ h1 {
 }
 .back-btn:hover {
   background-color: #D8D8D8;
-  border: 1px solid #D8D8D8;
+  border: 2px solid #D8D8D8;
 }
 .back-btn:active {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -103,9 +101,9 @@ h1 {
   -webkit-appearance: none;
   position: absolute;
 }
-.check-input:checked + .check-box, .check-input:checked + .radi_o, .radio-input:checked + .check-box, .radio-input:checked + .radi_o {
+.check-input:checked + .check-box, .check-input:checked + .radio-variant, .radio-input:checked + .check-box, .radio-input:checked + .radio-variant {
   background-color: #4A90E2;
-  background-image: url(https://cdn.glitch.com/d6162378-5823-4160-a555-3d9789bd2b92%2Fcheck.svg?1550563475518);
+  background-image: url(../../images/check.svg);
 }
 
 .check-box {
@@ -118,7 +116,7 @@ h1 {
   border: 2px solid #0080FF;
 }
 
-.radi_o {
+.radio-variant {
   position: absolute;
   margin-left: -1em;
   width: 0.6em;
