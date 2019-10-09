@@ -1,28 +1,28 @@
 @import 'mixins/_mixins.scss';
 @import 'mixins/_variables.scss';
 
-body, input, button {
+body, input {
   font-family: $main-font;	
 }
-h1 {
+h1,h2 {
   font-family: $heading-font;	
 }
 
-
+/* questions.html */
 .question {
   width: 500px;
-  margin: auto;
+  margin: 50px auto;
   	
   .input-text {
     width: 100%;
     padding: 10px 0 10px 10px;	
-    border: 2px solid $primary-color;
+    border: $border-size solid $secondary-color;
     border-radius: 7px;
     outline: none;
     box-sizing: border-box;
   
     &:focus {
-      border: 2px solid $active-input-color;
+      border: $border-size solid $border-color;
       box-shadow: 0 0 5px rgba(0,0,0,0.5);	
     }
   }
@@ -33,7 +33,7 @@ h1 {
 
   &:hover {
     background-color: $success-color;
-    border: 2px solid $success-color;   	
+    border: $border-size solid $success-color;   	
   }
 
   &:active {
@@ -46,8 +46,8 @@ h1 {
   flex-grow: 1;
 
   &:hover{
-    background-color: $primary-color;
-    border: 2px solid $primary-color;	
+    background-color: $secondary-color;
+    border: $border-size solid $secondary-color;	
   }	
 
   &:active {
@@ -71,7 +71,7 @@ h1 {
   flex-grow: 1;
   text-align: center;	
 }
-
+/**************************/
 
 /* radio-public */
 .radio-answers, .checkbox-answers {
@@ -79,11 +79,11 @@ h1 {
 
   .radio-row, .checkbox-row{
     padding: 15px 0 15px 1.2em;
-    border-top: 1px solid $primary-color;
-    border-bottom: 1px solid $primary-color;
+    border-top: 1px solid $secondary-color;
+    border-bottom: 1px solid $secondary-color;
     
     &:hover {
-      background-color: $primary-color;	
+      background-color: $secondary-color;	
 
     }
   }	
@@ -113,9 +113,417 @@ h1 {
   @include check-items();	
   border-radius: 0.6em; 
 }
+/*************************/
+
+
+/* index.html */
+
+
+  /* first-main-row */
+.all-body-content {
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.header-nav {
+  width: 100%;
+  display: flex;
+  background-color: $primary-color;
+  padding: 0 80px 0 80px;
+  box-sizing: border-box;
+  align-items: center;
+
+
+  .signin-btn {
+    margin-left: auto;
+    background-color: $default-color;
+    border: none;
+    padding: 10px;
+    font-family: $main-font;
+    border: $border-size solid $active-link-color;
+    border-radius: 25px;
+    color: $active-link-color;
+    outline: none;
+
+    &:active {
+        box-shadow: 0 0 10px $active-link-color;  
+    }
+  }
+}
+.logo {
+  color: $default-color;
+  margin-right: 100px;  
+}
+.nav-link {
+  font-family: $main-font !important;
+  text-decoration: none;
+  color: $default-color;
+  margin: 0 50px;
+
+  &:hover {
+    border-bottom: $border-size solid $active-link-color;
+    color: $active-link-color; 
+  }
+}
+.main-content {
+  margin: $top-margins 80px;  
+}
+.introduce-part {
+  display: flex;
+  justify-content: space-between;
+}
+.registration-form {
+  border: $border-size solid $default-color;
+  border-radius: 15px;
+  box-shadow: 0 0 10px $secondary-color;
+  padding: 0 10px;
+  box-sizing: border-box;
+  @include col-container();
+
+  input[type=email], input[type=password] {
+    margin-top: 10px;  
+  }
+
+  .all-inputs {
+    border: $border-size solid $secondary-color;
+    border-radius: 5px;
+    padding: 10px;  
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 10px $secondary-color;   
+    }
+  }
+
+  .form-heading {
+    text-align: center;  
+    margin-top: 20px;
+    color: $active-link-color;
+  } 
+
+  .signup-btn {
+     margin: 20px auto; 
+     padding: 10px; 
+     background-color: $primary-color;
+     border: $border-size solid $primary-color;
+     border-radius: 5px;
+     color: $default-color; 
+     outline: none;
+     font-family: $main-font;
+     font-size: 1em;
+
+     &:active {
+       box-shadow: 0 0 10px $active-link-color; 
+     } 
+  }
+}
+.form-part {
+  width: 35%;  
+}
+.about-us {
+  width: 48%;
+
+  .about-heading {
+    text-align: center;  
+    margin-top: 20px;
+    color: $active-link-color;  
+  }
+}
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  .tab-1, .tab-2 {
+    width: 48%;
+    text-align: center;  
+  }  
+}
+.active-tab {
+  border-bottom: $border-size solid $active-link-color;    
+}
+.first-spheres, .second-spheres {
+  @include col-container(); 
+  align-items: space-between;
+  width: 100%;
+}
+.hide-spheres {
+  display: none;  
+}
+.active-spheres {
+  display: block;  
+}
+.divide-line {
+  background-color: $primary-color;
+  height: $border-size;
+  border: none;
+  margin-top: $top-margins;  
+}
+.introduce-divider {
+  background-color: $primary-color;
+  width: $border-size;
+  border: none;
+}
+.trial-quiz {
+  margin: 20px 0;
+  text-align: center;
+
+  a {
+    text-decoration: none; 
+    
+    &:active {
+      color: $active-link-color;  
+    }
+  }  
+
+  /* .go-btn {
+    @include question-btn();
+    flex-grow: 3;
+    outline: none;
+    background-color: $go-trial-test;
+    border: $border-size solid $go-trial-test;
+    text-align: center;
+    color: $reverse-default-color;
+  
+    &:active {
+      box-shadow: 0 0 10px $go-trial-test;
+      color: $reverse-default-color; 
+    }
+  
+    i {
+      vertical-align: middle;  
+    }   
+  } */
+}
+
+
+.sport-btn {
+  @include spheres-buttons();
+  background-color: $sport-btn-color; 
+  border: $border-size solid $sport-btn-color; 
+
+  &:active {
+      box-shadow: 0 0 10px $sport-btn-color; 
+  }
+}
+.science-btn {
+  @include spheres-buttons();
+  background-color: $science-btn-color; 
+  border: $border-size solid $science-btn-color;
+
+  &:active {
+      box-shadow: 0 0 10px $science-btn-color; 
+  }   
+}
+.cinema-btn {
+  @include spheres-buttons(); 
+  background-color: $cinema-btn-color; 
+  border: $border-size solid $cinema-btn-color; 
+
+  &:active {
+      box-shadow: 0 0 10px $cinema-btn-color; 
+  } 
+}
+.books-btn {
+  @include spheres-buttons(); 
+  background-color: $books-btn-color; 
+  border: $border-size solid $books-btn-color; 
+
+  &:active {
+      box-shadow: 0 0 10px $books-btn-color; 
+  } 
+}
+.programming-btn {
+  @include spheres-buttons(); 
+  background-color: $programming-btn-color; 
+  border: $border-size solid $programming-btn-color; 
+
+  &:active {
+      box-shadow: 0 0 10px $programming-btn-color; 
+  }  
+}
+.profession-btn {
+  @include spheres-buttons(); 
+  background-color: $profession-btn-color; 
+  border: $border-size solid $profession-btn-color; 
+
+  &:active {
+      box-shadow: 0 0 10px $profession-btn-color; 
+  } 
+}
+
+  /**************************/
+
+
+  /* second-main-row */
+.admin-introduce {
+  margin-top: $top-margins;
+  display: flex;
+  justify-content: space-between;
+
+  .make-your-test-text, .make-your-test-img {
+    width: 48%;
+  }
+}  
+.make-your-test-img {
+  box-sizing: border-box;
+  padding: 25px 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.make-heading {
+  text-align: center;
+  color: $active-link-color;  
+}
+.admin-advantages {
+  margin-top: $top-margins; 
+  display: flex;
+  align-items: center;
+  color: $primary-color;
+  font-weight: bold;
+
+  i {
+    margin-right: 10px;
+    color: $primary-color;
+  } 
+}
+  /*******************/
+
+  /* footer */
+.footer {
+  background-color: $primary-color;
+
+  .short-info-about-us {
+    width: 55%; 
+
+    h3, p {
+      color: $default-color;   
+    } 
+  }
+  .socials {
+    width: 35%;
+
+    h3 {
+      color: $default-color;   
+    }
+  }
+}
+.footer-links {
+  @include footer-parts(); 
+}
+.footer-socials {
+  @include footer-parts();
+  margin: auto 0; 
+}
+.fa-twitter-square {
+  color: $default-color; 
+}
+.fa-facebook-square {
+  color: $default-color; 
+}
+.fa-vk {
+  color: $default-color;
+}
+.fa-telegram {
+  color: $default-color;
+}
+
 
 @media (max-width: 570px) {
   .question {
-    width: 100%;	
+    width: 80%;
   }	
+
+  /* index.html */
+  .header-nav {
+    @include col-container();  
+    align-items: flex-start;
+    background-color: $primary-color;
+    padding: 0;
+    justify-content: space-between;
+
+
+    .signin-btn {
+      margin: 10px auto;
+      background-color: $default-color;
+      padding: 10px;
+      font-family: $main-font;
+      border: $border-size solid $active-link-color;
+      border-radius: 25px;
+      color: $active-link-color;
+      outline: none;
+
+      &:active {
+          box-shadow: 0 0 10px $active-link-color;  
+      }
+    }
+  }  
+  .logo {
+    color: $default-color;
+    margin: 10px auto;  
+  }
+  .nav-link {
+    font-family: $main-font !important;
+    text-decoration: none;
+    color: $default-color;
+    margin: 10px auto;
+    
+
+    &:hover {
+      border-bottom: $border-size solid $active-link-color;
+      color: $active-link-color; 
+    }
+  }
+
+  .main-content {
+   margin: $top-margins auto;  
+  }
+
+  .introduce-part {
+    @include col-container(); 
+    margin-bottom: 0; 
+  }
+  .admin-introduce {
+    @include col-container(); 
+    width: 80%;
+    margin: -20px auto;
+
+    .make-your-test-text, .make-your-test-img {
+      width: 100%;
+
+      .admin-advantages {
+       margin-top: 25px;  
+      }  
+    }
+  }
+
+  .form-part, .about-us {
+    width: 80%;
+    margin: 0 auto;  
+  }
+
+  .divide-line, .introduce-divider {
+    display: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .about-us {
+    margin: $top-margins 0;
+    padding: 0 10%; 
+    background-color: #FBF8EF;
+  }
+  .footer-links {
+    @include col-container();
+    
+    .short-info-about-us, .socials, .footer-socials {
+      width: 100%;  
+    } 
+
+    .footer-socials {
+      margin-bottom: 10px;
+    } 
+  }
 }
