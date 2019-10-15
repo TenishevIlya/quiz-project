@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+  <script type="text/javascript">
+  	function calculateAge(date){
+	  var now = new Date();
+	  var age = now.getFullYear() - date.getFullYear();
+	  if (now.getMonth()+1 > date.getMonth()) {
+	  	return age;
+	  }
+	  if (now.getMonth()+1 < date.getMonth()) {
+	  	return age-1;
+	  }
+	  if (now.getMonth()+1 == date.getMonth()) {
+        if (now.getDate() >= date.getDate()) {
+          return age;	
+        }
+        else {
+          return age-1;	
+        }
+	  }
+	}
+	console.log(calculateAge(new Date(1990,12,12)));
+  </script>
+</body>
+</html>

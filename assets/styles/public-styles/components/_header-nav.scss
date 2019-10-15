@@ -1,0 +1,40 @@
+.header-nav {
+  width: 100%;
+  display: flex;
+  background-color: $primary-color;
+  padding: 0 80px 0 80px;
+  box-sizing: border-box;
+  align-items: center;
+
+
+  .signin-btn {
+    margin-left: auto;
+    background-color: $default-color;
+    border: none;
+    padding: 10px;
+    font-family: $main-font;
+    border: $border-size solid $active-link-color;
+    border-radius: 25px;
+    color: $active-link-color;
+    outline: none;
+
+    &:active {
+        box-shadow: 0 0 10px $active-link-color;  
+    }
+  }
+}
+.logo {
+  color: $default-color;
+  margin-right: 100px;  
+}
+.nav-link {
+  font-family: $main-font !important;
+  text-decoration: none;
+  color: $default-color;
+  margin: 0 50px;
+
+  &:hover {
+    border-bottom: $border-size solid $active-link-color;
+    color: $active-link-color; 
+  }
+}

@@ -1,0 +1,38 @@
+  /* footer */
+.footer {
+  background-color: $primary-color;
+
+  .short-info-about-us {
+    width: 55%; 
+
+    h3, p {
+      color: $default-color;   
+    } 
+  }
+  .socials {
+    width: 35%;
+
+    h3 {
+      color: $default-color;   
+    }
+  }
+}
+.footer-links {
+  @include footer-parts(); 
+}
+.footer-socials {
+  @include footer-parts();
+  margin: auto 0; 
+}
+.fa-twitter-square {
+  color: $default-color; 
+}
+.fa-facebook-square {
+  color: $default-color; 
+}
+.fa-vk {
+  color: $default-color;
+}
+.fa-telegram {
+  color: $default-color;
+}

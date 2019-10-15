@@ -1,6 +1,6 @@
-@import 'mixins/_mixins.scss';
-@import 'mixins/_variables.scss';
-
+@import 'components/_mixins.scss', 'components/_variables.scss', 'components/_question-form.scss',
+    'components/_sphere-buttons.scss', 'components/_sign-up-registration.scss',
+    'components/_footer.scss', 'components/_header-nav.scss';
 body, input {
   font-family: $main-font;	
 }
@@ -8,162 +8,14 @@ h1,h2 {
   font-family: $heading-font;	
 }
 
-/* questions.html */
-.question {
-  width: 500px;
-  margin: 50px auto;
-  	
-  .input-text {
-    width: 100%;
-    padding: 10px 0 10px 10px;	
-    border: $border-size solid $secondary-color;
-    border-radius: 7px;
-    outline: none;
-    box-sizing: border-box;
-  
-    &:focus {
-      border: $border-size solid $border-color;
-      box-shadow: 0 0 5px rgba(0,0,0,0.5);	
-    }
-  }
-}
-.next-btn {
-  @include question-btn();
-  flex-grow: 1;
-
-  &:hover {
-    background-color: $success-color;
-    border: $border-size solid $success-color;   	
-  }
-
-  &:active {
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    outline: none;
-  }	
-}
-.back-btn {
-  @include question-btn();
-  flex-grow: 1;
-
-  &:hover{
-    background-color: $secondary-color;
-    border: $border-size solid $secondary-color;	
-  }	
-
-  &:active {
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    outline: none;
-  }
-}
-.skip-btn {
-  @include question-btn();
-}
-.question-navigation {
-  display: flex;
-  justify-content: space-between; 
-  margin-top: 10px;	
-  align-items: center;
-}
-.question-content {
-  font-size: 15px;	
-}
-.question-number {
-  flex-grow: 1;
-  text-align: center;	
-}
-/**************************/
-
-/* radio-public */
-.radio-answers, .checkbox-answers {
-  @include col-container();
-
-  .radio-row, .checkbox-row{
-    padding: 15px 0 15px 1.2em;
-    border-top: 1px solid $secondary-color;
-    border-bottom: 1px solid $secondary-color;
-    
-    &:hover {
-      background-color: $secondary-color;	
-
-    }
-  }	
-
-  label:first-of-type, label:last-of-type {
-    border: none;	
-  }
-}
-
-/**************/
-
-
-/* checkbox-public */
-.check-input, .radio-input {
-  -webkit-appearance: none;
-  position: absolute;
-  
-  &:checked + .check-box, &:checked + .radio-variant {
-    background-color: #4A90E2;
-  	background-image: url(../../images/check.svg); 
-  } 
-}
-.check-box {
-  @include check-items();		
-}
-.radio-variant {
-  @include check-items();	
-  border-radius: 0.6em; 
-}
-/*************************/
 
 
 /* index.html */
-
-
   /* first-main-row */
 .all-body-content {
   margin: 0;
   display: grid;
   grid-template-rows: auto 1fr auto;
-}
-.header-nav {
-  width: 100%;
-  display: flex;
-  background-color: $primary-color;
-  padding: 0 80px 0 80px;
-  box-sizing: border-box;
-  align-items: center;
-
-
-  .signin-btn {
-    margin-left: auto;
-    background-color: $default-color;
-    border: none;
-    padding: 10px;
-    font-family: $main-font;
-    border: $border-size solid $active-link-color;
-    border-radius: 25px;
-    color: $active-link-color;
-    outline: none;
-
-    &:active {
-        box-shadow: 0 0 10px $active-link-color;  
-    }
-  }
-}
-.logo {
-  color: $default-color;
-  margin-right: 100px;  
-}
-.nav-link {
-  font-family: $main-font !important;
-  text-decoration: none;
-  color: $default-color;
-  margin: 0 50px;
-
-  &:hover {
-    border-bottom: $border-size solid $active-link-color;
-    color: $active-link-color; 
-  }
 }
 .main-content {
   margin: $top-margins 80px;  
@@ -171,51 +23,6 @@ h1,h2 {
 .introduce-part {
   display: flex;
   justify-content: space-between;
-}
-.registration-form {
-  border: $border-size solid $default-color;
-  border-radius: 15px;
-  box-shadow: 0 0 10px $secondary-color;
-  padding: 0 10px;
-  box-sizing: border-box;
-  @include col-container();
-
-  input[type=email], input[type=password] {
-    margin-top: 10px;  
-  }
-
-  .all-inputs {
-    border: $border-size solid $secondary-color;
-    border-radius: 5px;
-    padding: 10px;  
-    outline: none;
-
-    &:focus {
-      box-shadow: 0 0 10px $secondary-color;   
-    }
-  }
-
-  .form-heading {
-    text-align: center;  
-    margin-top: 20px;
-    color: $active-link-color;
-  } 
-
-  .signup-btn {
-     margin: 20px auto; 
-     padding: 10px; 
-     background-color: $primary-color;
-     border: $border-size solid $primary-color;
-     border-radius: 5px;
-     color: $default-color; 
-     outline: none;
-     font-family: $main-font;
-     font-size: 1em;
-
-     &:active {
-       box-shadow: 0 0 10px $active-link-color; 
-     } 
-  }
 }
 .form-part {
   width: 35%;  
@@ -275,84 +82,7 @@ h1,h2 {
       color: $active-link-color;  
     }
   }  
-
-  /* .go-btn {
-    @include question-btn();
-    flex-grow: 3;
-    outline: none;
-    background-color: $go-trial-test;
-    border: $border-size solid $go-trial-test;
-    text-align: center;
-    color: $reverse-default-color;
-  
-    &:active {
-      box-shadow: 0 0 10px $go-trial-test;
-      color: $reverse-default-color; 
-    }
-  
-    i {
-      vertical-align: middle;  
-    }   
-  } */
 }
-
-
-.sport-btn {
-  @include spheres-buttons();
-  background-color: $sport-btn-color; 
-  border: $border-size solid $sport-btn-color; 
-
-  &:active {
-      box-shadow: 0 0 10px $sport-btn-color; 
-  }
-}
-.science-btn {
-  @include spheres-buttons();
-  background-color: $science-btn-color; 
-  border: $border-size solid $science-btn-color;
-
-  &:active {
-      box-shadow: 0 0 10px $science-btn-color; 
-  }   
-}
-.cinema-btn {
-  @include spheres-buttons(); 
-  background-color: $cinema-btn-color; 
-  border: $border-size solid $cinema-btn-color; 
-
-  &:active {
-      box-shadow: 0 0 10px $cinema-btn-color; 
-  } 
-}
-.books-btn {
-  @include spheres-buttons(); 
-  background-color: $books-btn-color; 
-  border: $border-size solid $books-btn-color; 
-
-  &:active {
-      box-shadow: 0 0 10px $books-btn-color; 
-  } 
-}
-.programming-btn {
-  @include spheres-buttons(); 
-  background-color: $programming-btn-color; 
-  border: $border-size solid $programming-btn-color; 
-
-  &:active {
-      box-shadow: 0 0 10px $programming-btn-color; 
-  }  
-}
-.profession-btn {
-  @include spheres-buttons(); 
-  background-color: $profession-btn-color; 
-  border: $border-size solid $profession-btn-color; 
-
-  &:active {
-      box-shadow: 0 0 10px $profession-btn-color; 
-  } 
-}
-
-  /**************************/
 
 
   /* second-main-row */
@@ -392,138 +122,34 @@ h1,h2 {
 }
   /*******************/
 
-  /* footer */
-.footer {
-  background-color: $primary-color;
-
-  .short-info-about-us {
-    width: 55%; 
-
-    h3, p {
-      color: $default-color;   
-    } 
-  }
-  .socials {
-    width: 35%;
-
-    h3 {
-      color: $default-color;   
-    }
-  }
-}
-.footer-links {
-  @include footer-parts(); 
-}
-.footer-socials {
-  @include footer-parts();
-  margin: auto 0; 
-}
-.fa-twitter-square {
-  color: $default-color; 
-}
-.fa-facebook-square {
-  color: $default-color; 
-}
-.fa-vk {
-  color: $default-color;
-}
-.fa-telegram {
-  color: $default-color;
-}
 
 
-@media (max-width: 570px) {
-  .question {
-    width: 80%;
-  }	
-
-  /* index.html */
-  .header-nav {
-    @include col-container();  
-    align-items: flex-start;
-    background-color: $primary-color;
-    padding: 0;
-    justify-content: space-between;
-
-
-    .signin-btn {
-      margin: 10px auto;
-      background-color: $default-color;
-      padding: 10px;
-      font-family: $main-font;
-      border: $border-size solid $active-link-color;
-      border-radius: 25px;
-      color: $active-link-color;
-      outline: none;
-
-      &:active {
-          box-shadow: 0 0 10px $active-link-color;  
-      }
-    }
-  }  
-  .logo {
-    color: $default-color;
-    margin: 10px auto;  
-  }
-  .nav-link {
-    font-family: $main-font !important;
-    text-decoration: none;
-    color: $default-color;
-    margin: 10px auto;
-    
-
-    &:hover {
-      border-bottom: $border-size solid $active-link-color;
-      color: $active-link-color; 
-    }
-  }
-
-  .main-content {
-   margin: $top-margins auto;  
-  }
+@media (max-width: 640px) {
+  @include adaptime-placement();
 
   .introduce-part {
     @include col-container(); 
     margin-bottom: 0; 
   }
-  .admin-introduce {
-    @include col-container(); 
-    width: 80%;
-    margin: -20px auto;
-
-    .make-your-test-text, .make-your-test-img {
-      width: 100%;
-
-      .admin-advantages {
-       margin-top: 25px;  
-      }  
-    }
-  }
-
   .form-part, .about-us {
     width: 80%;
     margin: 0 auto;  
-  }
-
-  .divide-line, .introduce-divider {
-    display: none;
-    margin-top: 0px;
-    margin-bottom: 0px;
   }
   .about-us {
     margin: $top-margins 0;
     padding: 0 10%; 
     background-color: #FBF8EF;
   }
-  .footer-links {
-    @include col-container();
-    
-    .short-info-about-us, .socials, .footer-socials {
-      width: 100%;  
-    } 
+}
 
-    .footer-socials {
-      margin-bottom: 10px;
-    } 
+@media (max-width: 1000px) and (min-width: 641px){
+  @include adaptime-placement();
+
+  .introduce-part {
+    margin-bottom: $top-margins; 
+    justify-content: space-around;
+  }
+  .form-part, .about-us {
+    width: 40%;   
   }
 }

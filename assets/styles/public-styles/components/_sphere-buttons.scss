@@ -1,0 +1,54 @@
+.sport-btn {
+  @include spheres-buttons();
+  background-color: $sport-btn-color; 
+  border: $border-size solid $sport-btn-color; 
+
+  &:active {
+      box-shadow: 0 0 10px $sport-btn-color; 
+  }
+}
+.science-btn {
+  @include spheres-buttons();
+  background-color: $science-btn-color; 
+  border: $border-size solid $science-btn-color;
+
+  &:active {
+      box-shadow: 0 0 10px $science-btn-color; 
+  }   
+}
+.cinema-btn {
+  @include spheres-buttons(); 
+  background-color: $cinema-btn-color; 
+  border: $border-size solid $cinema-btn-color; 
+
+  &:active {
+      box-shadow: 0 0 10px $cinema-btn-color; 
+  } 
+}
+.books-btn {
+  @include spheres-buttons(); 
+  background-color: $books-btn-color; 
+  border: $border-size solid $books-btn-color; 
+
+  &:active {
+      box-shadow: 0 0 10px $books-btn-color; 
+  } 
+}
+.programming-btn {
+  @include spheres-buttons(); 
+  background-color: $programming-btn-color; 
+  border: $border-size solid $programming-btn-color; 
+
+  &:active {
+      box-shadow: 0 0 10px $programming-btn-color; 
+  }  
+}
+.profession-btn {
+  @include spheres-buttons(); 
+  background-color: $profession-btn-color; 
+  border: $border-size solid $profession-btn-color; 
+
+  &:active {
+      box-shadow: 0 0 10px $profession-btn-color; 
+  } 
+}

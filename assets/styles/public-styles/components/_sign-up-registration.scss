@@ -1,0 +1,45 @@
+.registration-form {
+  border: $border-size solid $default-color;
+  border-radius: 15px;
+  box-shadow: 0 0 10px $secondary-color;
+  padding: 0 10px;
+  box-sizing: border-box;
+  @include col-container();
+
+  input[type=email], input[type=password] {
+    margin-top: 10px;  
+  }
+
+  .all-inputs {
+    border: $border-size solid $secondary-color;
+    border-radius: 5px;
+    padding: 10px;  
+    outline: none;
+
+    &:focus {
+      box-shadow: 0 0 10px $secondary-color;   
+    }
+  }
+
+  .form-heading {
+    text-align: center;  
+    margin-top: 20px;
+    color: $active-link-color;
+  } 
+
+  .signup-btn {
+     margin: 20px auto; 
+     padding: 10px; 
+     background-color: $primary-color;
+     border: $border-size solid $primary-color;
+     border-radius: 5px;
+     color: $default-color; 
+     outline: none;
+     font-family: $main-font;
+     font-size: 1em;
+
+     &:active {
+       box-shadow: 0 0 10px $active-link-color; 
+     } 
+  }
+}

@@ -1,0 +1,113 @@
+@mixin question-btn() {
+  border: 2px solid $secondary-color;
+  background-color: $default-color;
+  padding: 10px;
+  border-radius: 4px;	
+}
+@mixin col-container() {
+  display: flex;
+  flex-direction: column;	
+}
+@mixin check-items() {
+  position: absolute;
+  margin-left: -1em;
+  width: 0.6em;
+  height: 0.6em;
+  margin-top: 0.15em;
+  background-color: $default-color;
+  border: 2px solid $border-color;
+}
+@mixin spheres-buttons() {
+  border-radius: 5px;
+  font-family: $main-font; 
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;   
+  outline: none;
+  color: $default-color;
+}
+@mixin footer-parts() {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+@mixin adaptime-placement(){
+  .question {
+    width: 80%;
+  } 
+
+  /* index.html */
+  .header-nav {
+    @include col-container();  
+    align-items: flex-start;
+    background-color: $primary-color;
+    padding: 0;
+    justify-content: space-between;
+
+
+    .signin-btn {
+      margin: 10px auto;
+      background-color: $default-color;
+      padding: 10px;
+      font-family: $main-font;
+      border: $border-size solid $active-link-color;
+      border-radius: 25px;
+      color: $active-link-color;
+      outline: none;
+
+      &:active {
+          box-shadow: 0 0 10px $active-link-color;  
+      }
+    }
+  }  
+  .logo {
+    color: $default-color;
+    margin: 10px auto;  
+  }
+  .nav-link {
+    font-family: $main-font !important;
+    text-decoration: none;
+    color: $default-color;
+    margin: 10px auto;
+    
+
+    &:hover {
+      border-bottom: $border-size solid $active-link-color;
+      color: $active-link-color; 
+    }
+  }
+
+  .main-content {
+   margin: $top-margins auto;  
+  }
+  .admin-introduce {
+    @include col-container(); 
+    width: 80%;
+    margin: -20px auto;
+
+    .make-your-test-text, .make-your-test-img {
+      width: 100%;
+
+      .admin-advantages {
+       margin-top: 25px;  
+      }  
+    }
+  }
+  .divide-line, .introduce-divider {
+    display: none;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  .footer-links {
+    @include col-container();
+    
+    .short-info-about-us, .socials, .footer-socials {
+      width: 100%;  
+    } 
+
+    .footer-socials {
+      margin-bottom: 10px;
+    } 
+  }
+}
