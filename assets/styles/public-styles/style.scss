@@ -1,6 +1,9 @@
+//неверно, импорт каждого файла должен быть отдельной инструкцией import
 @import 'components/_mixins.scss', 'components/_variables.scss', 'components/_question-form.scss',
     'components/_sphere-buttons.scss', 'components/_sign-up-registration.scss',
     'components/_footer.scss', 'components/_header-nav.scss';
+
+// идея с импортами верная, этот файл должен полностью из них состоять без какого-то css ещё, весь этот css это видимо _common.scss
 body, input {
   font-family: $main-font;	
 }
