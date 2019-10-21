@@ -5,25 +5,12 @@
 </head>
 <body>
   <script type="text/javascript">
-  	function calculateAge(date){
-	  var now = new Date();
-	  var age = now.getFullYear() - date.getFullYear();
-	  if (now.getMonth()+1 > date.getMonth()) {
-	  	return age;
-	  }
-	  if (now.getMonth()+1 < date.getMonth()) {
-	  	return age-1;
-	  }
-	  if (now.getMonth()+1 == date.getMonth()) {
-        if (now.getDate() >= date.getDate()) {
-          return age;	
-        }
-        else {
-          return age-1;	
-        }
-	  }
-	}
-	console.log(calculateAge(new Date(1990,12,12)));
+  	function calculateAge(date){	
+  	  var ageDifMs = Date.now() - date.getTime();
+      var ageDate = new Date(ageDifMs); // miliseconds from epoch
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+	console.log(calculateAge(new Date(1999, 9, 22)));
   </script>
 </body>
 </html>

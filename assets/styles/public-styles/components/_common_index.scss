@@ -1,0 +1,152 @@
+body, input {
+  font-family: $main-font;	
+}
+h1,h2 {
+  font-family: $heading-font;	
+}
+
+
+
+/* index.html */
+  /* first-main-row */
+.all-body-content {
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.main-content {
+  margin: $top-margins 80px;  
+}
+.introduce-part {
+  display: flex;
+  justify-content: space-between;
+}
+.form-part {
+  width: 35%;  
+}
+.about-us {
+  width: 48%;
+
+  .about-heading {
+    text-align: center;  
+    margin-top: 20px;
+    color: $active-link-color;  
+  }
+}
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  .tab-1, .tab-2 {
+    width: 48%;
+    text-align: center;  
+  }  
+}
+.active-tab {
+  border-bottom: $border-size solid $active-link-color;    
+}
+.first-spheres, .second-spheres {
+  @include col-container(); 
+  align-items: space-between;
+  width: 100%;
+}
+.hide-spheres {
+  display: none;  
+}
+.active-spheres {
+  display: block;  
+}
+.divide-line {
+  background-color: $primary-color;
+  height: $border-size;
+  border: none;
+  margin-top: $top-margins;  
+}
+.introduce-divider {
+  background-color: $primary-color;
+  width: $border-size;
+  border: none;
+}
+.trial-quiz {
+  margin: 20px 0;
+  text-align: center;
+
+  a {
+    text-decoration: none; 
+    
+    &:active {
+      color: $active-link-color;  
+    }
+  }  
+}
+
+
+  /* second-main-row */
+.admin-introduce {
+  margin-top: $top-margins;
+  display: flex;
+  justify-content: space-between;
+
+  .make-your-test-text, .make-your-test-img {
+    width: 48%;
+  }
+}  
+.make-your-test-img {
+  box-sizing: border-box;
+  padding: 25px 0;
+  
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.make-heading {
+  text-align: center;
+  color: $active-link-color;  
+}
+.admin-advantages {
+  margin-top: $top-margins; 
+  display: flex;
+  align-items: center;
+  color: $primary-color;
+  font-weight: bold;
+
+  i {
+    margin-right: 10px;
+    color: $primary-color;
+  } 
+}
+  /*******************/
+
+
+
+@media (max-width: 640px) {
+  @include adaptime-placement();
+
+  .introduce-part {
+    @include col-container(); 
+    margin-bottom: 0; 
+  }
+  .form-part, .about-us {
+    width: 80%;
+    margin: 0 auto;  
+  }
+  .about-us {
+    margin: $top-margins 0;
+    padding: 0 10%; 
+    background-color: #FBF8EF;
+  }
+}
+
+@media (max-width: 1000px) and (min-width: 641px){
+  @include adaptime-placement();
+
+  .introduce-part {
+    margin-bottom: $top-margins; 
+    justify-content: space-around;
+  }
+  .form-part, .about-us {
+    width: 40%;   
+  }
+}

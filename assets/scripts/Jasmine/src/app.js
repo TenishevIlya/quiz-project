@@ -1,49 +1,39 @@
 function yesOrNo(value) {
-  switch(value) {
-  	case true:
-  	  return "yes";
-  	  break;
-  	case false: 
-  	  return "no";
-  	  break;
-  	case null:
-  	  return null;
-  	  break;
-  	case undefined: 
-  	  return null;
-  	  break;
-  	defaut:
-  	  break;        
+  if ((value !== null) && (value !== undefined)) {
+    if (value === true) {
+      return "yes";
+    }
+    if (value === false) {
+      return "no";
+    }
+  }
+  else {
+    return null; 
   }
 }
 
 function counter(total) {
-  if ((total != null) || (total != undefined)) {
-    return (total <= 9) && (total >= 1) ? total : "9+";
+  if (Number.isInteger(total)) {
+    if ((total >= 1) && (total <= 9)) {
+      return total;
+    }
+    if (total > 9) {
+      return "9+";
+    }
+    else {
+      return "total is less than 1";
+    }
   }
-  else {
-    return null;  
+  if ((total === null) || (total === undefined)) {
+    return null;
   }
 }
 
 function calculateAge(date){
-    if ((date != null) || (date != undefined)) {
-      var now = new Date();
-      var age = now.getFullYear() - date.getFullYear();
-      if (now.getMonth()+1 > date.getMonth()) {
-        return age;
-      }
-      if (now.getMonth()+1 < date.getMonth()) {
-        return age-1;
-      }
-      if (now.getMonth()+1 == date.getMonth()) {
-          if (now.getDate() >= date.getDate()) {
-            return age; 
-          }
-          else {
-            return age-1; 
-          }
-      }
+    if ((date !== null) && (date !== undefined) && (date.getTime() < Date.now())) {
+      var ageDifMs = Date.now() - date.getTime();
+      var ageDate = new Date(ageDifMs);
+      return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
     else {
       return null;  
