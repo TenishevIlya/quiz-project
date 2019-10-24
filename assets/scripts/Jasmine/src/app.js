@@ -86,3 +86,22 @@ function grouping_users_by_year(json) {
   },0);
   return result;
 }
+
+
+function checkTheAnswer(answer,value) {
+  if (value === answer) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+function askNextQuestion(text) {
+  var answer = prompt(text);
+  return answer;
+}
+
+function hasNextQuestion(obj,i) {
+  return (obj[i] !== undefined) ? true : false;
+}
