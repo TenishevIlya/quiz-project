@@ -84,7 +84,8 @@ function grouping_users_by_year(json) {
     object[String(now)] = current_array;
     return object;    
   },0);
-  return result;
+  //return result;
+  console.log(result);
 }
 
 

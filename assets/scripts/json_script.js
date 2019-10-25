@@ -2,7 +2,7 @@ var obj = {};
 var testResults = [];
 var trueResults = 0; 
 var startDate, endDate;
-var timeForTestInMs = 15000;
+var timeForTestInMs = 10000;
 
 
 function hasNextQuestion(obj,i) {
