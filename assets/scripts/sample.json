@@ -1,3 +1,4 @@
+// где id у каждого вопроса?
 {
     "questions":[
     	{
@@ -60,11 +61,11 @@
     		"answers" : [
             	{
             		"title" : "Нет",
-            		"value" : "Нет"
+            		"value" : "Нет" // false
             	},
             	{
             		"title" : "Да",
-            		"value" : "Да"
+            		"value" : "Да" // true
             	}
     		]	
     	},
@@ -75,7 +76,7 @@
     		"answers" : [
             	{
             		"title" : "1",
-            		"value" : "1"
+            		"value" : "1" // просто 1 как число, а не как строка
             	}
     		]
     	},
@@ -86,7 +87,7 @@
     		"answers" : [
             	{
             		"title" : "Function Declaration",
-            		"value" : "Function Declaration"
+            		"value" : "Function Declaration" // должно быть как какое-то строковое значение, типа function_declaration, значение не должно быть с пробелами
             	},
             	{
                 	"title" : "Function Expression",
@@ -109,7 +110,7 @@
             	},
             	{
                 	"title" : "for..in",
-            		"value" : "for..in" 
+            		"value" : "for..in"  // for_in
             	},
             	{
             		"title" : "while",
@@ -117,7 +118,7 @@
             	},
             	{
             		"title" : "do..while",
-            		"value" : "do..while"
+            		"value" : "do..while" // do_while
             	}
     		]
     	},
@@ -128,7 +129,7 @@
     		"answers" : [
             	{
             		"title" : ["1","3"],
-            		"value" : ["1","3"]
+            		"value" : ["1","3"] // [1, 3]
             	},
             	{
             		"title" : ["2","3"],
@@ -151,7 +152,7 @@
     		"answers" : [
             	{
             		"title" : "Включает строгий режим",
-            		"value" : "Включает строгий режим"
+            		"value" : "Включает строгий режим" // enable_use_strict
             	}
     		]
     	},
@@ -162,7 +163,7 @@
     		"answers" : [
             	{
             		"title" : "Нет",
-            		"value" : "Нет"
+            		"value" : "Нет" // false
             	}
     		]
     	}

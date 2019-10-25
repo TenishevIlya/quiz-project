@@ -46,21 +46,26 @@ function getRandomItem(list) {
   return list[randomItem];
 }
 
-
+// почему в этом же файле, почему не создать новый?
+// имена функций в camelCase, откуда dashed?
 function convert_date_from_iso8601(date) {
   return new Date(date);
 }
 
-
-
-
+// слишком сложно, если уж на то пошло, то это множество отдельных функций, этот комбайн ни к чему
+// трудно с чего то начать, вернусь минут через 10
+// ...
+// вот решение
+// https://jsfiddle.net/78sc9rfn/
+// разбери и спроси если неясно, соответственно тесты надо переписать
 function grouping_users_by_year(json) {
   var jsonParse = JSON.parse(json);
-  var object = new Object();              
+  var object = new Object(); // можно просто var obj = {}
   var years = [];
 
+  // излишне совсем, reduce на это изначально направлен, чтобы обойтись им один раз
   var unique_years = jsonParse.reduce(function(last,current) {
-    var current_date = convert_date_from_iso8601(current.birth_date);
+    var current_date = convert_date_from_iso8601(current.birth_date); // лучше уж просто new Date(date), твоя функция излишняя здесь
       if (!years.includes(current_date.getFullYear())) {
         years.push(current_date.getFullYear());
         object[String(current_date.getFullYear())] = [];
@@ -88,8 +93,9 @@ function grouping_users_by_year(json) {
   console.log(result);
 }
 
-
+// почему функции квиза находятся здесь? им место в проекте, у тебя должно быть несколько раздельных файлов скриптов
 function checkTheAnswer(answer,value) {
+  // return value === answer; и всё
   if (value === answer) {
     return true;
   }
