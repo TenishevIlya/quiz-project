@@ -1,8 +1,13 @@
 var obj = {};
-var testResults = [];
+var wrongAnswers = [];
 var trueResults = 0; 
-var startDate, endDate;
+var startDate;
+var endDate;
 var timeForTestInMs = 10000;
+
+function getData(resp) {
+	return resp.json();	
+}
 
 
 function hasNextQuestion(obj,i) {
@@ -14,18 +19,17 @@ function askNextQuestion(text) {
 	return answer;
 }
 
-function checkTheAnswer(answer,value) {
+function checkTheAnswer(answer,value,i) {
 	if (value === answer) {
 		trueResults++;
-		testResults.push("Верно");
 	}
 	else {
-		testResults.push("Ошибка");
+		wrongAnswers.push(i);
 	}
 }
 
-function showResults() {
-	return "Результаты теста: " + testResults; 	
+function formatResults() {
+	return "Вопросы с неправильными ответами: " + wrongAnswers; 	
 }
 
 function isTimerEnabled() {
@@ -33,26 +37,29 @@ function isTimerEnabled() {
 	return now <= endDate;
 }
 
-function run_quiz() {
+function quizEnding(data) {
+	console.info(formatResults());
+    console.info("Правильно: " + trueResults + "/" + data.questions.length);
+}
+
+function runApp() {
     fetch("../assets/scripts/sample.json")
     .then(function(resp) {
 	   	return resp.json();
 	})
 	.then(function(data) {
 		var i = 0;
+		var realAnswer;
+		var userAnswer;
 		startDate = new Date();
 		endDate = startDate.getTime() + timeForTestInMs;
         while (hasNextQuestion(data.questions,i) && isTimerEnabled()) {
-        	checkTheAnswer(data.questions[i].answer, askNextQuestion(data.questions[i].question_text)); 
+        	realAnswer = data.questions[i].answer;
+        	userAnswer = askNextQuestion(data.questions[i].question_text);
+        	checkTheAnswer(realAnswer, userAnswer,i);
         	i++; 
         }
-        console.info(showResults());
-        console.info("Правильно: " + trueResults + "/" + data.questions.length);
-        trueResults = 0;
-        testResults.length = 0;
+        quizEnding(data);
     });
 }      
-
-
-var btn = document.getElementById("start");
-btn.addEventListener('click', run_quiz);
+runApp();

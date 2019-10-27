@@ -1,7 +1,11 @@
 describe("checkTheAnswer", function() {
-	it("should check the accuracy of answer", function() {
-		expect(checkTheAnswer("people","people")).toBe(true);
-		expect(checkTheAnswer("Moscow","Moscow")).toBe(true);
-		expect(checkTheAnswer("JS","JavaScript")).toBe(false);
+	it("should check people is equal to people", function() {
+		expect(checkTheAnswer('people', 'people')).toBe(true);
 	});
+	it("should check Moscow is equal to Moscow", function() {
+		expect(checkTheAnswer('Moscow', 'Moscow')).toBe(true);
+	});
+	it("should check JS is not equal to JavaScript", function() {
+		expect(checkTheAnswer('JS', 'JavaScript')).toBe(false);
+	});	
 });

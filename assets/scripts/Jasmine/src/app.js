@@ -47,20 +47,14 @@ function getRandomItem(list) {
 }
 
 
-function convert_date_from_iso8601(date) {
-  return new Date(date);
-}
 
-
-
-
-function grouping_users_by_year(json) {
+function groupingUsersByYear(json) {
   var jsonParse = JSON.parse(json);
   var object = new Object();              
   var years = [];
 
   var unique_years = jsonParse.reduce(function(last,current) {
-    var current_date = convert_date_from_iso8601(current.birth_date);
+    var current_date = convertDateFromIso8601(current.birth_date);
       if (!years.includes(current_date.getFullYear())) {
         years.push(current_date.getFullYear());
         object[String(current_date.getFullYear())] = [];
@@ -71,7 +65,7 @@ function grouping_users_by_year(json) {
   var result = unique_years.reduce(function(start,now) {
     var current_array = [];
       jsonParse.reduce(function(last,current) {
-        var current_date = convert_date_from_iso8601(current.birth_date); 
+        var current_date = convertDateFromIso8601(current.birth_date); 
           if ((String(current_date.getFullYear()) in object) && (now === current_date.getFullYear())) {
             var full_name = current.first_name+current.last_name;
             current['name'] = full_name;
@@ -86,23 +80,4 @@ function grouping_users_by_year(json) {
   },0);
   //return result;
   console.log(result);
-}
-
-
-function checkTheAnswer(answer,value) {
-  if (value === answer) {
-    return true;
-  }
-  else {
-    return false;
-  }
-}
-
-function askNextQuestion(text) {
-  var answer = prompt(text);
-  return answer;
-}
-
-function hasNextQuestion(obj,i) {
-  return (obj[i] !== undefined) ? true : false;
 }
