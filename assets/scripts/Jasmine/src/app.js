@@ -1,4 +1,4 @@
-function yesOrNo(value) {
+let yesOrNo = (value) => {
   if ((value !== null) && (value !== undefined)) {
     if (value === true) {
       return "yes";
@@ -12,7 +12,7 @@ function yesOrNo(value) {
   }
 }
 
-function counter(total) {
+let counter = (total) => {
   if (Number.isInteger(total)) {
     if ((total >= 1) && (total <= 9)) {
       return total;
@@ -29,10 +29,10 @@ function counter(total) {
   }
 }
 
-function calculateAge(date){
+let calculateAge = (date) => {
     if ((date !== null) && (date !== undefined) && (date.getTime() < Date.now())) {
-      var ageDifMs = Date.now() - date.getTime();
-      var ageDate = new Date(ageDifMs);
+      let ageDifMs = Date.now() - date.getTime();
+      let ageDate = new Date(ageDifMs);
       return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
     else {
@@ -40,21 +40,21 @@ function calculateAge(date){
     }
   }
 
-function getRandomItem(list) {
-  var count = list.length;
-  var randomItem = Math.floor(Math.random() * count);
+let getRandomItem = (list) => {
+  let count = list.length;
+  let randomItem = Math.floor(Math.random() * count);
   return list[randomItem];
 }
 
 
 
-function groupingUsersByYear(json) {
-  var jsonParse = JSON.parse(json);
-  var object = new Object();              
-  var years = [];
+let groupingUsersByYear = (json) => {
+  let jsonParse = JSON.parse(json);
+  let object = new Object();              
+  let years = [];
 
-  var unique_years = jsonParse.reduce(function(last,current) {
-    var current_date = convertDateFromIso8601(current.birth_date);
+  let unique_years = jsonParse.reduce((last,current) => {
+    let current_date = convertDateFromIso8601(current.birth_date);
       if (!years.includes(current_date.getFullYear())) {
         years.push(current_date.getFullYear());
         object[String(current_date.getFullYear())] = [];
@@ -62,12 +62,12 @@ function groupingUsersByYear(json) {
     return years;
   },0);
 
-  var result = unique_years.reduce(function(start,now) {
-    var current_array = [];
-      jsonParse.reduce(function(last,current) {
-        var current_date = convertDateFromIso8601(current.birth_date); 
+  let result = unique_years.reduce((start,now) => {
+    let current_array = [];
+      jsonParse.reduce((last,current) => {
+        let current_date = convertDateFromIso8601(current.birth_date); 
           if ((String(current_date.getFullYear()) in object) && (now === current_date.getFullYear())) {
-            var full_name = current.first_name+current.last_name;
+            let full_name = current.first_name+current.last_name;
             current['name'] = full_name;
             current.birth_date = current_date;
             delete current.first_name;

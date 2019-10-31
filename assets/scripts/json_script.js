@@ -1,25 +1,25 @@
-var obj = {};
-var wrongAnswers = [];
-var trueResults = 0; 
-var startDate;
-var endDate;
-var timeForTestInMs = 10000;
+let obj = {};
+let wrongAnswers = [];
+let trueResults = 0; 
+let startDate;
+let endDate;
+let timeForTestInMs = 10000;
 
-function getData(resp) {
+let getData = (resp) => {
 	return resp.json();	
 }
 
 
-function hasNextQuestion(obj,i) {
+let hasNextQuestion = (obj,i) => {
 	return (obj[i] !== undefined) ? true : false;
 }
 
-function askNextQuestion(text) {
-	var answer = prompt(text);
+let askNextQuestion = (text) => {
+	let answer = prompt(text);
 	return answer;
 }
 
-function checkTheAnswer(answer,value,i) {
+let checkTheAnswer = (answer,value,i) => {
 	if (value === answer) {
 		trueResults++;
 	}
@@ -28,29 +28,29 @@ function checkTheAnswer(answer,value,i) {
 	}
 }
 
-function formatResults() {
+let formatResults = () => {
 	return "Вопросы с неправильными ответами: " + wrongAnswers; 	
 }
 
-function isTimerEnabled() {
-	var now = new Date();
+let isTimerEnabled = () => {
+	let now = new Date();
 	return now <= endDate;
 }
 
-function quizEnding(data) {
+let quizEnding = (data) => {
 	console.info(formatResults());
     console.info("Правильно: " + trueResults + "/" + data.questions.length);
 }
 
-function runApp() {
+let runApp = () => {
     fetch("../assets/scripts/sample.json")
-    .then(function(resp) {
+    .then((resp) => {
 	   	return resp.json();
 	})
-	.then(function(data) {
-		var i = 0;
-		var realAnswer;
-		var userAnswer;
+	.then((data) => {
+		let i = 0;
+		let realAnswer;
+		let userAnswer;
 		startDate = new Date();
 		endDate = startDate.getTime() + timeForTestInMs;
         while (hasNextQuestion(data.questions,i) && isTimerEnabled()) {
