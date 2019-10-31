@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "lite-server",
-    "build": "babel js -d dist --presets es2015"
+    "build:js": "babel assets/scripts -d assets/dist/scripts --presets es2015",
+    "dev:js": "babel assets/scripts -d assets/dist/scripts --presets es2015 -w",
+    "build:css": "node-sass assets/styles/public-styles/style.scss assets/dist/styles/style.css",
+    "dev:css": "node-sass -w assets/styles/public-styles/style.scss -o assets/dist/styles/style.css"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.6.3",
     "babel-cli": "^6.26.0",
-    "lite-server": "^2.5.4"
+    "lite-server": "^2.5.4",
+    "node-sass": "^4.13.0"
   }
 }
