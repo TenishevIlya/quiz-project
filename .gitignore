@@ -1,5 +1,9 @@
 #node files
 /node_modules/ 
 
+public/node_modules/
+
+admin/node_modules/
+
 #compiled files
-/dist/
+assets/dist/
