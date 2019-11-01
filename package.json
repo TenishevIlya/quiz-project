@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "lite-server",
-    "build:js": "babel assets/scripts -d assets/dist/scripts --presets es2015",
-    "dev:js": "babel assets/scripts -d assets/dist/scripts --presets es2015 -w",
+    "build:js": "babel assets/scripts -d assets/dist/scripts",
+    "dev:js": "babel assets/scripts -d assets/dist/scripts -w",
     "build:css": "node-sass assets/styles/public-styles/style.scss  assets/dist/styles/style.css",
     "dev:css": "node-sass -w assets/styles/public-styles/style.scss -o assets/dist/styles"
   },
@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/TenishevIlya/quiz-project#readme",
   "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
-    "babel-cli": "^6.26.0",
     "lite-server": "^2.5.4",
     "node-sass": "^4.13.0"
   },
