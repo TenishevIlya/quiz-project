@@ -1,7 +1,5 @@
 #node files
-/node_modules 
-
-**/node_modules/
+/node_modules/ 
 
 #compiled files
-**/dist/
+/dist/
