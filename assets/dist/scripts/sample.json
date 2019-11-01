@@ -1,0 +1,180 @@
+{
+    "questions":[
+    	{
+            "id" : 1,
+    		"type" : "radio",
+    		"question_text" : "В каком году был создан язык JavaScript?",
+    		"answer" : "1995",
+    		"answers" : [
+            	{
+            		"title" : "1996",
+            		"value" : "1996"
+            	},
+            	{
+                	"title" : "1995",
+            		"value" : "1995" 
+            	},
+            	{
+            		"title" : "1999",
+            		"value" : "1999"
+            	}
+    		]
+    	},	
+    	{
+            "id" : 2,    
+    		"type" : "radio",
+    		"question_text" : "Сколько типов данных есть в JS?",
+    		"answer" : "6",
+    		"answers" : [
+            	{
+            		"title" : "3",
+            		"value" : "3"
+            	},
+            	{
+                	"title" : "4",
+            		"value" : "4" 
+            	},
+            	{
+            		"title" : "6",
+            		"value" : "6"
+            	},
+            	{
+                	"title" : "2",
+            		"value" : "2" 
+            	}
+    		]
+    	},
+    	{
+            "id" : 3,
+    		"type" : "text",
+    		"question_text" : "Перечислите типы данных в JS",
+    		"answer" : ["String","Number","Boolean","Object","null","undefined"],
+    		"answers" : [
+            	{
+            		"title" : ["String","Number","Boolean","Object","null","undefined"],
+            		"value" : ["String","Number","Boolean","Object","null","undefined"]
+            	}
+    		]
+    	},
+    	{
+            "id" : 4,
+    		"type" : "radio",
+    		"question_text" : "JS является языком с динамической типизацией?",
+    		"answer" : "Да",
+    		"answers" : [
+            	{
+            		"title" : "Нет",
+            		"value" : false
+            	},
+            	{
+            		"title" : "Да",
+            		"value" : true
+            	}
+    		]	
+    	},
+    	{
+            "id" : 5,
+    		"type" : "text",
+    		"question_text" : "Что будет выведено на экран в результате выполнения данного кода alert(Number(true));?",
+    		"answer" : "1",
+    		"answers" : [
+            	{
+            		"title" : "1",
+            		"value" : 1
+            	}
+    		]
+    	},
+    	{
+            "id" : 6,
+    		"type" : "checkbox",
+    		"question_text" : "Какие определения функций существуют в JS?",
+    		"answer" : ["Function Declaration", "Function Expression"],
+    		"answers" : [
+            	{
+            		"title" : "Function Declaration",
+            		"value" : "function_declaration"
+            	},
+            	{
+                	"title" : "Function Expression",
+            		"value" : "function_expression" 
+            	},
+            	{
+            		"title" : "Function Statement",
+            		"value" : "function_statement"
+            	}
+    		]
+    	},
+    	{
+            "id" : 7,
+    		"type" : "checkbox",
+    		"question_text" : "Какие циклы определены в JS?",
+    		"answer" : ["for","for..in","while","do..while"],
+    		"answers" : [
+            	{
+            		"title" : "for",
+            		"value" : "for"
+            	},
+            	{
+                	"title" : "for..in",
+            		"value" : "for_in" 
+            	},
+            	{
+            		"title" : "while",
+            		"value" : "while"
+            	},
+            	{
+            		"title" : "do..while",
+            		"value" : "do_while"
+            	}
+    		]
+    	},
+    	{
+            "id" : 8,
+    		"type" : "radio",
+    		"question_text" : "Какие из перечисленных alert выполнятся <if (-1 || 0) alert('first');> <if (-1 && 0) alert('second');> <if (null || -1 && 1) alert( 'third' );>?",
+    		"answer" : ["1","3"],
+    		"answers" : [
+            	{
+            		"title" : ["1","3"],
+            		"value" : [1, 3]
+            	},
+            	{
+            		"title" : ["2","3"],
+            		"value" : [2,3]
+            	},
+            	{
+            		"title" : "2",
+            		"value" : 2
+            	},
+            	{
+            		"title" : ["1","2","3"],
+            		"value" : [1,2,3]
+            	}
+    		]	
+    	},
+    	{
+            "id" : 9,
+    		"type" : "text",
+    		"question_text" : "Что выполняет директива 'use strict'",
+    		"answer" : "Включает строгий режим",
+    		"answers" : [
+            	{
+            		"title" : "Включает строгий режим",
+            		"value" : "enable_use_strict"
+            	}
+    		]
+    	},
+    	{
+            "id" : 10,
+    		"type" : "text",
+    		"question_text" : "Можно ли изменить содержимое строки в JS",
+    		"answer" : "Нет",
+    		"answers" : [
+            	{
+            		"title" : "Нет",
+            		"value" : false
+            	}
+    		]
+    	}
+    ]
+}
