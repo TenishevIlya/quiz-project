@@ -5,5 +5,7 @@ public/node_modules/
 
 admin/node_modules/
 
+assets/Jasmine(console)/node_modules/
+
 #compiled files
 assets/dist/
