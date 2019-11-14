@@ -12,29 +12,29 @@
 <body class="all-body-content">
     <nav class="bg-light">
         <div class="nav-wrap">
-            <a href="#" class="logo">Admin panel</a>
+            <a href="#" class="logo" data-translate="ADMIN_PANEL">Панель администратора</a>
             <div class="nav-list">
-                <a href="index.html" class="text-muted nav-wrap-link"><span>Главная</span></a>
-                <a href="question-table.html" class="text-muted nav-wrap-link"><span>Таблица вопросов</span></a>
-                <a href="edit.html" class="text-muted nav-wrap-link"><span>Добавить вопрос</span></a>
-                <a href="#" class="text-muted nav-wrap-link"><span>Мои тесты</span></a>
-                <a href="#" class="text-muted nav-wrap-link"><span>Настройки</span></a>
+                <a href="index.html" class="text-muted nav-wrap-link"><span data-translate="MAIN">Главная</span></a>
+                <a href="question-table.html" class="text-muted nav-wrap-link"><span data-translate="QUESTION_TABLE">Таблица вопросов</span></a>
+                <a href="edit.html" class="text-muted nav-wrap-link"><span data-translate="ADD_QEUSTION">Добавить вопрос</span></a>
+                <a href="#" class="text-muted nav-wrap-link"><span data-translate="MY_TESTS">Мои тесты</span></a>
+                <a href="#" class="text-muted nav-wrap-link"><span data-translate="SETTINGS">Настройки</span></a>
             </div>
-            <a href="signin.html" class="btn btn-outline-primary log-out"> Log out</a>
+            <a href="signin.html" class="btn btn-outline-primary log-out" data-translate="LOG_OUT">Выйти</a>
         </div>  
     </nav>
     <main>
     	  <div class="container">
-        	  <h1>Таблица вопросов</h1>
-        	  <a href="edit.html" class="btn btn-outline-primary rounded-pill add-quest"><i class="fas fa-plus"></i>Добавить вопрос</a>  
+        	  <h1 data-translate="QUESTION_TABLE">Таблица вопросов</h1>
+        	  <a href="edit.html" class="btn btn-outline-primary rounded-pill add-quest"><i class="fas fa-plus"></i><span>Добавить вопрос</span></a>  
         	  <table class="table table-bordered table-responsive">
       	    <thead>
       	      <tr>
-        	        <th scope="col">id</th>
-        	        <th scope="col">Вопрос</th>
-        	        <th scope="col">Дата</th>
-        	        <th scope="col">Ответ</th>
-        	        <th scope="col">Действия</th>
+        	        <th scope="col" data-translate="ID">Номер</th>
+        	        <th scope="col" data-translate="QUESTION">Вопрос</th>
+        	        <th scope="col" data-translate="DATE">Дата</th>
+        	        <th scope="col" data-translate="ANSWER">Ответ</th>
+        	        <th scope="col" data-translate="ACTIONS">Действия</th>
       	      </tr>
       	    </thead>
               <tbody>
@@ -98,5 +98,7 @@
             </table>
         </div>
     </main>
+
+    <script src="../assets/scripts/multilingual-changer.js"></script>
 </body>
 </html>

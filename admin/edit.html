@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  	<title>Добавление вопроса</title>
+  	<title data-translate="QUESTION_ADDING">Добавление вопроса</title>
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
     <link rel="stylesheet" href="node_modules/normalize.css">
@@ -12,20 +12,20 @@
 <body class="all-body-content">
     <nav class="bg-light">
         <div class="nav-wrap">
-            <a href="#" class="logo">Admin panel</a>
+            <a href="#" class="logo" data-translate="ADMIN_PANEL">Панель администратора</a>
             <div class="nav-list">
-                <a href="index.html" class="text-muted nav-wrap-link"><span>Главная</span></a>
-                <a href="question-table.html" class="text-muted nav-wrap-link"><span>Таблица вопросов</span></a>
-                <a href="edit.html" class="text-muted nav-wrap-link"><span>Добавить вопрос</span></a>
-                <a href="#" class="text-muted nav-wrap-link"><span>Мои тесты</span></a>
-                <a href="#" class="text-muted nav-wrap-link"><span>Настройки</span></a>
+                <a href="index.html" class="text-muted nav-wrap-link"><span data-translate="MAIN">Главная</span></a>
+                <a href="question-table.html" class="text-muted nav-wrap-link"><span data-translate="QUESTION_TABLE">Таблица вопросов</span></a>
+                <a href="edit.html" class="text-muted nav-wrap-link"><span data-translate="ADD_QEUSTION">Добавить вопрос</span></a>
+                <a href="#" class="text-muted nav-wrap-link"><span data-translate="MY_TESTS">Мои тесты</span></a>
+                <a href="#" class="text-muted nav-wrap-link"><span data-translate="SETTINGS">Настройки</span></a>
             </div>
-            <a href="signin.html" class="btn btn-outline-primary log-out"> Log out</a>
+            <a href="signin.html" class="btn btn-outline-primary log-out" data-translate="LOG_OUT">Выйти</a>
         </div>  
     </nav>
     <main>
         <div class="container edit-container">
-            <h2>Добавление вопроса</h2>
+            <h2 data-translate="QUESTION_ADDING">Добавление вопроса</h2>
             <hr>	
             <form>
                 <div class="col-container">
@@ -74,6 +74,8 @@
                 <button type="submit" class="btn btn-outline-primary submit-btn">Добавить вопрос</button>
             </form>
         </div>
-    </main>	
+    </main>
+
+    <script src="../assets/scripts/multilingual-changer.js"></script>	
 </body>
 </html>
