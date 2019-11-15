@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  	<title>Main page</title>
+  	<title data-translate="MAIN">Главная</title>
   	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.css">
   	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="node_modules/normalize.css">
@@ -12,42 +12,44 @@
 <body class="all-body-content">
     <nav class="bg-light">
         <div class="nav-wrap">
-            <a href="#" class="logo">Admin panel</a>
+            <a href="#" class="logo" data-translate="ADMIN_PANEL">Панель администратора</a>
             <div class="nav-list">
-                <a href="index.html" class="text-muted nav-wrap-link"><span>Главная</span></a>
-                <a href="question-table.html" class="text-muted nav-wrap-link"><span>Таблица вопросов</span></a>
-                <a href="edit.html" class="text-muted nav-wrap-link"><span>Добавить вопрос</span></a>
-                <a href="#" class="text-muted nav-wrap-link"><span>Мои тесты</span></a>
-                <a href="#" class="text-muted nav-wrap-link"><span>Настройки</span></a>
+                <a href="index.html" class="text-muted nav-wrap-link"><span data-translate="MAIN">Главная</span></a>
+                <a href="question-table.html" class="text-muted nav-wrap-link"><span data-translate="QUESTION_TABLE">Таблица вопросов</span></a>
+                <a href="edit.html" class="text-muted nav-wrap-link"><span data-translate="ADD_QEUSTION">Добавить вопрос</span></a>
+                <a href="#" class="text-muted nav-wrap-link"><span data-translate="MY_TESTS">Мои тесты</span></a>
+                <a href="#" class="text-muted nav-wrap-link"><span data-translate="SETTINGS">Настройки</span></a>
             </div>
-            <a href="signin.html" class="btn btn-outline-primary log-out"> Log out</a>
+            <a href="signin.html" class="btn btn-outline-primary log-out" data-translate="LOG_OUT">Выйти</a>
         </div>  
     </nav>
     <main class="index-content">
       	<div class="container">
-            <h1 class="mb-3 index-header">Информация:</h1>
+            <h1 class="mb-3 index-header" data-translate="INFORMATION">Информация:</h1>
             <div class="col-container">
                 <div class="row-container main-table">
                     <a href="question-table.html" class="btn btn-outline-primary main-table-link">
-                        <h2 class="text-center">1.&nbsp;Таблица вопросов</h2>
+                        <h2 class="text-center" data-translate="QUESTION_TABLE_MAIN">1.Таблица вопросов</h2>
                     </a>	
                     <a href="edit.html" class="btn btn-outline-primary main-table-link">
-                        <h2 class="text-center">2.&nbsp;Добавить вопрос</h2>
+                        <h2 class="text-center" data-translate="ADD_QEUSTION_MAIN">2.Добавить вопрос</h2>
                     </a>
                 </div>
                 <div class="row-container second-row main-table">
                     <a href="#" class="btn btn-outline-primary main-table-link second-row-link">
-                        <h2 class="text-center">3.&nbsp;Готовые тесты</h2>
+                        <h2 class="text-center" data-translate="READY_TESTS">3.Готовые тесты</h2>
                     </a>	
                     <a href="#" class="btn btn-outline-primary main-table-link second-row-link">
-                        <h2 class="text-center"> 4.&nbsp;Статистика прохождений</h2>
+                        <h2 class="text-center" data-translate="PASSING_STATISTICS">4.Статистика прохождений</h2>
                     </a>
                     <a href="#" class="btn btn-outline-primary main-table-link second-row-link">
-                      <h2 class="text-center"> 5.&nbsp;Настройки теста</h2>
+                      <h2 class="text-center" data-translate="TEST_SETTINGS">5.Настройки теста</h2>
                     </a>
                 </div>	
             </div>	 
         </div>
     </main>
+
+    <script src="../assets/scripts/multilingual-changer.js"></script>
 </body>
 </html>
