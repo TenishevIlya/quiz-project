@@ -64,25 +64,26 @@
 .radio-answers, .checkbox-answers {
   display: flex;
   flex-direction: column; }
-  .radio-answers .radio-row, .radio-answers .checkbox-row, .checkbox-answers .radio-row, .checkbox-answers .checkbox-row {
+   .radio-answers .radio-row, .radio-answers .checkbox-row, .checkbox-answers .radio-row, .checkbox-answers .checkbox-row {
     padding: 15px 0 15px 1.2em;
     border-top: 1px solid #D8D8D8;
-    border-bottom: 1px solid #D8D8D8; }
+    border-bottom: 1px solid #D8D8D8; } 
     .radio-answers .radio-row:hover, .radio-answers .checkbox-row:hover, .checkbox-answers .radio-row:hover, .checkbox-answers .checkbox-row:hover {
       background-color: #D8D8D8; }
-  .radio-answers label:first-of-type, .radio-answers label:last-of-type, .checkbox-answers label:first-of-type, .checkbox-answers label:last-of-type {
-    border: none; }
+    .radio-answers label:first-of-type, .radio-answers label:last-of-type, .checkbox-answers label:first-of-type, .checkbox-answers label:last-of-type {
+      border: none ;
+     } 
 
 /**************/
 /* checkbox-public */
-.check-input, .radio-input {
+.checkbox-input, .radio-input {
   -webkit-appearance: none;
   position: absolute; }
-  .check-input:checked + .check-box, .check-input:checked + .radio-variant, .radio-input:checked + .check-box, .radio-input:checked + .radio-variant {
+  .checkbox-input:checked + .checkbox-variant, .checkbox-input:checked + .radio-variant, .radio-input:checked + .checkbox-variant, .radio-input:checked + .radio-variant {
     background-color: #4A90E2;
     background-image: url(../../images/check.svg); }
 
-.check-box {
+.checkbox-variant {
   position: absolute;
   margin-left: -1em;
   width: 0.6em;
