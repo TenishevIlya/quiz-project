@@ -64,15 +64,14 @@
 .radio-answers, .checkbox-answers {
   display: flex;
   flex-direction: column; }
-   .radio-answers .radio-row, .radio-answers .checkbox-row, .checkbox-answers .radio-row, .checkbox-answers .checkbox-row {
+  .radio-answers .radio-row, .radio-answers .checkbox-row, .checkbox-answers .radio-row, .checkbox-answers .checkbox-row {
     padding: 15px 0 15px 1.2em;
     border-top: 1px solid #D8D8D8;
-    border-bottom: 1px solid #D8D8D8; } 
+    border-bottom: 1px solid #D8D8D8; }
     .radio-answers .radio-row:hover, .radio-answers .checkbox-row:hover, .checkbox-answers .radio-row:hover, .checkbox-answers .checkbox-row:hover {
       background-color: #D8D8D8; }
-    .radio-answers label:first-of-type, .radio-answers label:last-of-type, .checkbox-answers label:first-of-type, .checkbox-answers label:last-of-type {
-      border: none ;
-     } 
+  .radio-answers label:first-of-type, .radio-answers label:last-of-type, .checkbox-answers label:first-of-type, .checkbox-answers label:last-of-type {
+    border: none; }
 
 /**************/
 /* checkbox-public */
@@ -103,6 +102,39 @@
   border-radius: 0.6em; }
 
 /*************************/
+.error {
+  color: red; }
+
+/* .custom-table {
+  border: 1px solid black;
+  &:tr {
+    border: 1px solid black;
+  }
+} */
+.custom-table {
+  width: 500px;
+  margin: 50px auto;
+  border-collapse: separate;
+  border-radius: 15px;
+  border: #58D3F7 solid 2px; }
+  .custom-table tr {
+    border: none; }
+  .custom-table td {
+    padding: 3px;
+    padding: 10px;
+    border-top: #58D3F7 solid 2px;
+    border-left: none;
+    border-right: none;
+    text-align: center; }
+  .custom-table th {
+    border: none;
+    padding: 3px; }
+
+.backToIndex {
+  padding: 10px;
+  width: 500px;
+  margin: 50px auto; }
+
 .sport-btn {
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
