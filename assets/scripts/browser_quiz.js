@@ -1,3 +1,6 @@
+// глобальные переменные это ужасно, стоит превращать в ООП по максимуму
+// смотри мой код из examples где были классы
+
 /* html elements */
 let questionBlock = document.querySelector('.question');
 let formEl = document.querySelector('.js-form');
@@ -17,18 +20,31 @@ let countWarnings = true;
 
 function hasNextQuestion(obj,i) {
     return (obj[i] !== undefined) ? true : false;
+
+    // вообще достаточно писать так
+    // return obj[i] !== undefined
+    //
+    // но ещё лучше obj.hasOwnProperty(i)
+    // имена обеих переменных ужасны, дай им корректные имена
 }
 
+// мой eslint говорит что функция не используется. А ещё я вижу почти копипасту прошлой функции
 function hasPrevQuestion(obj,i) {
     return (obj[i-1] !== undefined) ? true : false;    
 }
 
 function generateControl({type,answers},index) {
+    // у функции слишком много обязанностей
+    // type === 'text' лучше сделать как isTextControl()
+    // далее функции printTextControl(), printRadioControl, printCheckboxControl() стоит разделить
+    // здесь не хватает немного ООП в идеале
     if (type === 'text') {
         return `
             <input type="${type}" name="${FIELD_NAME}" class="input-${type}" placeholder="Ответ">
         `;    
     }
+
+    // variant не лучшее имя в программировании, лучше case | type | entity
     return `
             <label class="${type}-row">
                 <input type="${type}" name="${FIELD_NAME}" data-value="${answers[index].value}" class="${type}-input">
@@ -38,6 +54,7 @@ function generateControl({type,answers},index) {
    `;
 }
 
+// здесь точно eslint наругает
 function generateControlContainer({question_text,id,type},control,size) {
     return `
         <h1 class="" data-translate="QUESTION_№${id}"> Вопрос: №${id} </h1>
@@ -58,6 +75,7 @@ function generateControlContainer({question_text,id,type},control,size) {
 
 function extractAnswersListValue(inputEls) {
     let result = [];
+    // isTextControl() ещё раз можно переиспользовать
     if (inputEls.type === 'text') { 
         result.push(inputEls.value);  
     }
@@ -99,6 +117,10 @@ function checkTheAnswer(answer,value) {
 }
 
 function validateInput(answer) {
+    // проверка на тип должна быть отдельно
+    // https://stackoverflow.com/questions/4059147/check-if-a-variable-is-a-string-in-javascript
+    // и лучше использовать trim()
+    // return true:false лучше делать однострочными конструкциями, как я выше описал
     if (String(answer) !== '') {
         return true;
     }
@@ -134,6 +156,8 @@ function showTable(obj) {
     attachToForm(container);
 }
 
+// называется runQuiz, а по факту делает и запрос за данными и генерацию формы и какую-то логику, зарефакторить
+// ниже пояснение расширенное
 function runQuiz() {
     fetch("../assets/scripts/sample.json")
     .then((resp) => {
@@ -149,6 +173,10 @@ function runQuiz() {
 }
 runQuiz(); 
 
+// крайне большая функция у которой очень много обязанностей.
+// стоит выносить много отдельных мелких функций отдельно
+// а то у тебя здесь и html и проверка на валидность и цикл по вопросам и т.д., зарефакторить!
+// к слову, стоит почитать Боб Мартин Чистый код, можно 2-3 главу, оч полезная инфа за 20-30 мин
 formEl.addEventListener('submit', (event) => {
     event.preventDefault();
     let userAnswer = String(extractAnswersListValue(formEl.elements[FIELD_NAME]));
