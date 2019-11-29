@@ -87,16 +87,16 @@
 
 
 /* checkbox-public */
-.check-input, .radio-input {
+.checkbox-input, .radio-input {
   -webkit-appearance: none;
   position: absolute;
   
-  &:checked + .check-box, &:checked + .radio-variant {
+  &:checked + .checkbox-variant, &:checked + .radio-variant {
     background-color: #4A90E2;
   	background-image: url(../../images/check.svg); 
   } 
 }
-.check-box {
+.checkbox-variant {
   @include check-items();		
 }
 .radio-variant {
@@ -104,3 +104,42 @@
   border-radius: 0.6em; 
 }
 /*************************/
+
+.error {
+  color: red;
+}
+
+/* .custom-table {
+  border: 1px solid black;
+  &:tr {
+    border: 1px solid black;
+  }
+} */
+.custom-table {
+  width: 500px;
+  margin: 50px auto; 
+  border-collapse: separate;
+  border-radius: 15px;
+  border: $primary-color solid 2px;
+  tr {
+    border: none;
+  }
+  td {
+    padding: 3px; 
+    padding: 10px;
+    border-top: $primary-color solid 2px;
+    border-left: none;
+    border-right: none;
+    text-align: center;  
+  }
+  th {
+    border: none;
+    padding: 3px;
+  }
+}
+
+.backToIndex {
+  padding: 10px;
+  width: 500px;
+  margin: 50px auto;
+}

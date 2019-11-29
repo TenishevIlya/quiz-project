@@ -9,3 +9,5 @@ assets/Jasmine(console)/node_modules/
 
 #compiled files
 assets/dist/
+
+.idea

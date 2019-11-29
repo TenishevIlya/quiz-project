@@ -60,7 +60,7 @@
             "id" : 4,
     		"type" : "radio",
     		"question_text" : "JS является языком с динамической типизацией?",
-    		"answer" : "Да",
+    		"answer" : "true",
     		"answers" : [
             	{
             		"title" : "Нет",
@@ -88,7 +88,7 @@
             "id" : 6,
     		"type" : "checkbox",
     		"question_text" : "Какие определения функций существуют в JS?",
-    		"answer" : ["Function Declaration", "Function Expression"],
+    		"answer" : ["function declaration", "function expression"],
     		"answers" : [
             	{
             		"title" : "Function Declaration",

@@ -75,14 +75,14 @@
 
 /**************/
 /* checkbox-public */
-.check-input, .radio-input {
+.checkbox-input, .radio-input {
   -webkit-appearance: none;
   position: absolute; }
-  .check-input:checked + .check-box, .check-input:checked + .radio-variant, .radio-input:checked + .check-box, .radio-input:checked + .radio-variant {
+  .checkbox-input:checked + .checkbox-variant, .checkbox-input:checked + .radio-variant, .radio-input:checked + .checkbox-variant, .radio-input:checked + .radio-variant {
     background-color: #4A90E2;
     background-image: url(../../images/check.svg); }
 
-.check-box {
+.checkbox-variant {
   position: absolute;
   margin-left: -1em;
   width: 0.6em;
@@ -102,6 +102,39 @@
   border-radius: 0.6em; }
 
 /*************************/
+.error {
+  color: red; }
+
+/* .custom-table {
+  border: 1px solid black;
+  &:tr {
+    border: 1px solid black;
+  }
+} */
+.custom-table {
+  width: 500px;
+  margin: 50px auto;
+  border-collapse: separate;
+  border-radius: 15px;
+  border: #58D3F7 solid 2px; }
+  .custom-table tr {
+    border: none; }
+  .custom-table td {
+    padding: 3px;
+    padding: 10px;
+    border-top: #58D3F7 solid 2px;
+    border-left: none;
+    border-right: none;
+    text-align: center; }
+  .custom-table th {
+    border: none;
+    padding: 3px; }
+
+.backToIndex {
+  padding: 10px;
+  width: 500px;
+  margin: 50px auto; }
+
 .sport-btn {
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
