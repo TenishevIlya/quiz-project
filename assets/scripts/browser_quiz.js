@@ -106,7 +106,12 @@ function validateInput(answer) {
 }
 
 function createTableRow(obj,prop,value) {
-    return `<tr><td>${prop}</td><td>${value}</td></tr>`
+    if (value === 'true') {
+        return `<tr><td>${prop}</td><td>Верно</td></tr>`;
+    }
+    else {
+        return `<tr><td>${prop}</td><td>Неверно</td></tr>`;   
+    }
 }
 
 function createTableContainer(row) {
@@ -123,6 +128,7 @@ function showTable(obj) {
     let tableHTML = '';
     for (let elem in obj) {
             tableHTML += createTableRow(obj,elem,obj[elem]);
+            console.log(obj[elem]);
         }
     let container = createTableContainer(tableHTML);
     attachToForm(container);
@@ -164,7 +170,6 @@ formEl.addEventListener('submit', (event) => {
             } 
         }
         else {
-            console.info(allResults);
             showTable(allResults);
         }
         countWarnings = true;
