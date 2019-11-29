@@ -6,7 +6,7 @@ let controlWrapperEl = formEl.querySelector('.js-form-control');
 const FIELD_NAME = "answer";
 
 /* data containers */
-let currentQuestion = {};
+//let currentQuestion = {};
 let questionsArray = [];
 let allResults = {};
 
@@ -23,7 +23,7 @@ function hasPrevQuestion(obj,i) {
     return (obj[i-1] !== undefined) ? true : false;    
 }
 
-function generateControl({type,question_text,answers},index) {
+function generateControl({type,answers},index) {
     if (type === 'text') {
         return `
             <input type="${type}" name="${FIELD_NAME}" class="input-${type}" placeholder="Ответ">
@@ -89,7 +89,7 @@ function generateDynamicForm(elements,elementsSize) {
     attachToForm(container);
 }
 
-function checkTheAnswer(answer,value,i) {
+function checkTheAnswer(answer,value) {
     if (value === answer) {
         return true
     }
@@ -147,7 +147,7 @@ formEl.addEventListener('submit', (event) => {
     event.preventDefault();
     let userAnswer = String(extractAnswersListValue(formEl.elements[FIELD_NAME]));
 
-    let checkUserAnswer = checkTheAnswer(userAnswer,questionsArray[clickQuestionsCounter-1].answer,clickQuestionsCounter); 
+    let checkUserAnswer = checkTheAnswer(userAnswer,questionsArray[clickQuestionsCounter-1].answer); 
     allResults[String(clickQuestionsCounter)] = String(checkUserAnswer);
     if (!validateInput(userAnswer)) {
         if (countWarnings) {
