@@ -15,3 +15,6 @@
 `npm run dev:js`
 
 `npm run dev:css`
+
+## Запуск линтера
+`npx eslint filename.js`
