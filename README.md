@@ -3,12 +3,6 @@
 
 # Деплой
 
-#### Инициализация проекта
-` npm init`
-
-### Установка lite-server
-`npm install lite-server --save-dev`
-
 ### Запуск проекта
 `npm start`
 
