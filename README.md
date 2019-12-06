@@ -3,12 +3,6 @@
 
 # Деплой
 
-#### Инициализация проекта
-` npm init`
-
-### Установка lite-server
-`npm install lite-server --save-dev`
-
 ### Запуск проекта
 `npm start`
 
@@ -21,3 +15,6 @@
 `npm run dev:js`
 
 `npm run dev:css`
+
+## Запуск линтера
+`npx eslint filename.js`
