@@ -92,13 +92,13 @@ function hasNextQuestion(allQuestions,property) {
     return allQuestions.hasOwnProperty(property);
 }
 
-function showNextQuestion(data) {
-    generateDynamicForm(data[resultsDataLength(allResults)],data.length);
-    hideUnwantedWarnings(questionBlock,1);        
-}
-
-function showPrevQuestion(data,answer) {
-    generateDynamicFilledForm(data[resultsDataLength(allResults)],data.length,answer)
+function showQuestion(data,direction,answer) {
+    if (direction === 'forward') {
+        generateDynamicForm(data[resultsDataLength(allResults)],data.length);
+    }
+    if (direction === 'back') {
+        generateDynamicFilledForm(data[resultsDataLength(allResults)],data.length,answer);    
+    }
     hideUnwantedWarnings(questionBlock,1);        
 }
 
@@ -404,7 +404,7 @@ formEl.addEventListener('submit', (event) => {
     }
     else {
         if (hasNextQuestion(questionsArray,resultsDataLength(allResults))) {
-            showNextQuestion(questionsArray);
+            showQuestion(questionsArray,"forward");
         }
         else {
             showTable(allResults);
@@ -417,7 +417,8 @@ formEl.addEventListener('reset', (event) => {
     let answer = currentAnswers[currentAnswers.length-1];
     if (hasNextQuestion(questionsArray,resultsDataLength(allResults)-1)) {
         rewriteData(allResults,currentAnswers);
-        showPrevQuestion(questionsArray,answer);
+        showQuestion(questionsArray,"back",answer);
+        //showPrevQuestion(questionsArray,answer);
     }   
     else {
         addWarning(formEl,"Нет предыдущего вопроса");
