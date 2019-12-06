@@ -1,42 +1,107 @@
 /* html elements */
-let questionBlock = document.querySelector('.question');
-let formEl = document.querySelector('.js-form');
-let controlWrapperEl = formEl.querySelector('.js-form-control');
-
+const questionBlock = document.querySelector('.question');
+const formEl = document.querySelector('.js-form');
+const controlWrapperEl = formEl.querySelector('.js-form-control');
 const FIELD_NAME = "answer";
 
 /* data containers */
-//let currentQuestion = {};
 let questionsArray = [];
 let allResults = {};
+let currentAnswers = [];
 
-/* Counters */
-let questionsCounter = 0;
-let clickQuestionsCounter = 1;
-let countWarnings = true;
+class CustomConrtol {
 
-function hasNextQuestion(obj,i) {
-    return (obj[i] !== undefined) ? true : false;
-}
-
-function hasPrevQuestion(obj,i) {
-    return (obj[i-1] !== undefined) ? true : false;    
-}
-
-function generateControl({type,answers},index) {
-    if (type === 'text') {
-        return `
-            <input type="${type}" name="${FIELD_NAME}" class="input-${type}" placeholder="Ответ">
-        `;    
+    constructor({type}) {
+        this.type = type;
     }
-    return `
-            <label class="${type}-row">
-                <input type="${type}" name="${FIELD_NAME}" data-value="${answers[index].value}" class="${type}-input">
-                <span class="${type}-variant"></span>
-                    ${answers[index].title}  
-            </label>            
-   `;
 }
+
+class InputTypedControl extends CustomConrtol {
+
+    constructor({type}) {
+        super({type});
+    }
+
+    generateInputTypedControl(title,value) {
+        return `
+            <label class="${this.type}-row">
+                <input type="${this.type}" name="${FIELD_NAME}" data-value="${value}" class="${this.type}-input">
+                <span class="${this.type}-case"></span>
+                    ${title}  
+            </label>            
+        `;
+    }
+
+    generateFilledInputTypedControl(title,value) {
+        return `
+                <label class="${this.type}-row">
+                    <input type="${this.type}" name="${FIELD_NAME}" data-value="${value}" checked class="${this.type}-input">
+                    <span class="${this.type}-case"></span>
+                        ${title}  
+                </label>            
+        `;
+    }
+}
+
+class SelectControl extends CustomConrtol {
+    
+    constructor({type}) {
+        super({type});
+    }
+
+    generateSelectControl(option) {
+        return `
+            <select name="${FIELD_NAME}">
+                ${option}
+            </select>`;
+    }
+
+    generateOption(title,value) {
+        return `<option value="${value}">
+                    ${title}
+                </option>`;
+    }
+
+    generateSelectedOption(title,value) {
+        return `<option selected value="${value}">
+                    ${title}
+                </option>`;
+    }
+}
+
+class TextControl extends CustomConrtol {
+    
+    constructor({type}) {
+        super({type});
+    }
+
+    generateTextControl() {
+        return `
+		    <input type="text" name="${FIELD_NAME}" class="input-text" placeholder="Ответ">
+	    `;        
+    }
+
+    generateFilledTextControl(answerValue) {
+        return `
+		    <input type="text" value="${answerValue}" name="${FIELD_NAME}" class="input-text" placeholder="Ответ">
+	    `;    
+    }
+}
+
+function hasNextQuestion(allQuestions,property) {
+    return allQuestions.hasOwnProperty(property);
+}
+
+function showNextQuestion(data) {
+    generateDynamicForm(data[resultsDataLength(allResults)],data.length);
+    hideUnwantedWarnings(questionBlock,1);        
+}
+
+function showPrevQuestion(data,answer) {
+    generateDynamicFilledForm(data[resultsDataLength(allResults)],data.length,answer)
+    hideUnwantedWarnings(questionBlock,1);        
+}
+
 
 function generateControlContainer({question_text,id,type},control,size) {
     return `
@@ -47,8 +112,8 @@ function generateControlContainer({question_text,id,type},control,size) {
         </div>
         <hr>
         <div class="question-navigation">
-            <button class="question-btn back-btn" data-direction='back'><i class="fas fa-arrow-left"></i></button>
-            <span class="question-number"> Вопрос: ${id}/${size}.</span>
+            <button class="question-btn back-btn" type="reset"><i class="fas fa-arrow-left"></i></button>
+            <span class="question-number"> Вопрос: ${id}/${size}</span>
             <button class="question-btn next-btn" type="submit" data-direction='forward'>
                 <i class="fas fa-arrow-right"></i>
             </button>
@@ -58,8 +123,11 @@ function generateControlContainer({question_text,id,type},control,size) {
 
 function extractAnswersListValue(inputEls) {
     let result = [];
-    if (inputEls.type === 'text') { 
-        result.push(inputEls.value);  
+    if (isTextControl(inputEls)) { 
+        result.push(inputEls.value); 
+    }
+    else if (inputEls.type === 'select-one') {
+        result.push(inputEls.value); 
     }
     else {
         for (let el of inputEls) {
@@ -80,32 +148,184 @@ function attachToForm(html) {
     }
 }
 
-function generateDynamicForm(elements,elementsSize) {
-    let controlHTML = '';
-    for (let answer in elements.answers) {
-            controlHTML += generateControl(elements,answer);
+function isTextControl(control) {
+    return (control.type === 'text') ? true : false;
+}
+
+function isSelectControl(control) {
+    return (control.type === 'select') ? true : false;   
+}
+
+function getSelectTypeCase(formElement) {
+    return formElement[0].type === 'select-one';    
+}
+
+function selectAnswerOrNot(formElement) {
+    if (getSelectTypeCase(formElement)){
+        return toString(extractAnswersListValue(formEl.elements[0]));
+    }
+    return toString(extractAnswersListValue(formEl.elements[FIELD_NAME]));
+}
+
+
+function extractStringToArray(str) {
+    let currentLetter = 0;
+    let currentComma = 0;
+    let resultedArray = [];
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === ',') {
+            currentComma = i;
+            resultedArray.push(str.slice(currentLetter,currentComma));
+            currentLetter = i + 1;
         }
-    let container = generateControlContainer(elements,controlHTML,elementsSize);
+    }
+    resultedArray.push(str.slice(currentComma+1,str.length));
+    return resultedArray;
+}
+
+
+// in checkbox case when we have more than one answer and answers are separated by commas
+function isAnyCommas(str) {
+    return str.indexOf(',') !== -1;
+}
+
+function generateDynamicForm(element,elementsSize) {
+    let controlEl = {};
+    let controlHTML = '';
+    let selectHTML = '';
+    if (isTextControl(element)) {
+        controlEl = new TextControl(element);
+        controlHTML += controlEl.generateTextControl();
+    }
+    else if (isSelectControl(element)) {
+        controlEl = new SelectControl(element); 
+        for (let answer of element.answers) {
+            selectHTML += controlEl.generateOption(answer.title,answer.value);
+        } 
+        controlHTML += controlEl.generateSelectControl(selectHTML);
+    }
+    else {
+        controlEl = new InputTypedControl(element);
+        for (let answer of element.answers) {
+            controlHTML += controlEl.generateInputTypedControl(answer.title,answer.value);
+        }
+    }
+    let container = generateControlContainer(element,controlHTML,elementsSize);
     attachToForm(container);
 }
 
+function generatePrevSelect(selectHTML,element,prevAnswer) {
+    controlEl = new SelectControl(element); 
+        for (let answer of element.answers) {
+            if (toString(prevAnswer) === answer.value) {
+                selectHTML += controlEl.generateSelectedOption(answer.title,prevAnswer);
+            }
+            else {
+                selectHTML += controlEl.generateOption(answer.title,answer.value);    
+            }
+        } 
+        return controlEl.generateSelectControl(selectHTML);
+}
+
+function generatePrevCheckboxes(element,controlEl,prevAnswer) {
+    let checkboxControl = '';
+    let currentQuestionAnswers = extractStringToArray(toString(prevAnswer));
+    for (let answer of element.answers) {
+        for (let elem of currentQuestionAnswers) {
+            if (elem === toString(answer.value)) {
+                checkboxControl += controlEl.generateFilledInputTypedControl(answer.title,answer.value);
+                break;
+            }   
+            if (currentQuestionAnswers.indexOf(toString(answer.value)) === -1) {
+                checkboxControl += controlEl.generateInputTypedControl(answer.title,answer.value);
+                break; 
+            } 
+        }   
+    }
+    return checkboxControl;
+}
+
+function generatePrevRadios(element,controlEl,prevAnswer) {
+    let radioControl = '';
+    for (let answer of element.answers) {
+        if (toString(prevAnswer) === toString(answer.value)) {
+            radioControl  += controlEl.generateFilledInputTypedControl(answer.title,answer.value);
+        } 
+        else {
+            radioControl  += controlEl.generateInputTypedControl(answer.title,answer.value);   
+        }   
+    }
+    return radioControl;
+}
+
+function generateDynamicFilledForm(element,elementsSize,prevAnswer) {
+    let controlEl = {};
+    let controlHTML = '';
+    let selectHTML = '';
+    if (isTextControl(element)) {
+        controlEl = new TextControl(element);
+        controlHTML += controlEl.generateFilledTextControl(prevAnswer);
+    }
+    else if (isSelectControl(element)) {
+        controlHTML += generatePrevSelect(selectHTML,element,prevAnswer);
+    }
+    if (!isSelectControl(element) && !isTextControl(element)) {
+        controlEl = new InputTypedControl(element);
+        if (isAnyCommas(toString(prevAnswer))) {
+            controlHTML += generatePrevCheckboxes(element,controlEl,prevAnswer);
+        }
+        else {
+            controlHTML += generatePrevRadios(element,controlEl,prevAnswer);
+        }
+    }
+    let container = generateControlContainer(element,controlHTML,elementsSize);
+    attachToForm(container);
+}
+
+
 function checkTheAnswer(answer,value) {
-    if (value === answer) {
-        return true
+    return (value === answer) ? true : false;
+}
+
+
+function stringValidation(text) {
+    return (typeof text) === 'string';
+}
+
+function rewriteData(resultsArray,actualAnswers) {
+    delete resultsArray[resultsDataLength(resultsArray)];
+    actualAnswers.splice(actualAnswers.length-1,1);
+}
+
+function toString(answer) {
+    return String(answer);
+}
+
+function addAnswerToFinalResults(userAnswer) {
+    let formElement = formEl.elements;
+    let index = resultsDataLength(allResults);
+    let currentAnswerArray = [];
+    userAnswer = selectAnswerOrNot(formElement);
+    if(!inputValidation(userAnswer)) {
+        return;
     }
     else {
-        return false;
-    }   
-}
-
-function validateInput(answer) {
-    if (String(answer) !== '') {
-        return true;
+        let checkUserAnswer = checkTheAnswer(userAnswer,questionsArray[index].answer); 
+        allResults[String(index+1)] = String(checkUserAnswer);
+        currentAnswerArray.push(userAnswer);
+        currentAnswers.push(currentAnswerArray);
     }
-    return false;
 }
 
-function createTableRow(obj,prop,value) {
+function inputValidation(answer) {
+    return (stringValidation(answer)) ? (answer.trim() !== '') : (toString(answer).trim() !== '');
+}
+
+function resultsDataLength(data) {
+    return Object.keys(data).length;
+}
+
+function createTableRow(prop,value) {
     if (value === 'true') {
         return `<tr><td>${prop}</td><td>Верно</td></tr>`;
     }
@@ -113,6 +333,7 @@ function createTableRow(obj,prop,value) {
         return `<tr><td>${prop}</td><td>Неверно</td></tr>`;   
     }
 }
+
 
 function createTableContainer(row) {
     return `<table class="custom-table">
@@ -124,54 +345,81 @@ function createTableContainer(row) {
             <a class='backToIndex' href='index.html'>На главную</a>`;
 }
 
+
 function showTable(obj) {
     let tableHTML = '';
     for (let elem in obj) {
-            tableHTML += createTableRow(obj,elem,obj[elem]);
-            console.log(obj[elem]);
+            tableHTML += createTableRow(elem,obj[elem]);
         }
     let container = createTableContainer(tableHTML);
     attachToForm(container);
 }
 
-function runQuiz() {
+
+function getQuestionsData(data) {
+    let questionsCounter = 0;
+    while (hasNextQuestion(data.questions,questionsCounter)) {
+        questionsArray.push(data.questions[questionsCounter]);
+        questionsCounter++; 
+    }    
+}
+
+function addWarning(formElement,warningMessage) {
+    formElement.insertAdjacentHTML('afterend', `<strong class="error">*${warningMessage}</strong>`);  
+    hideUnwantedWarnings(questionBlock,2);
+}
+
+function hideUnwantedWarnings(domElem,index) {
+    if (domElem.children.length > index) {
+        domElem.children[index].innerHTML = '';
+    }   
+}
+
+function runQuiz(data) {
+    generateDynamicForm(data.questions[0],data.questions.length);    
+}
+
+
+function getDataAndRunQuiz() {
     fetch("../assets/scripts/sample.json")
     .then((resp) => {
 	   	return resp.json();
 	})
 	.then((data) => {
-        generateDynamicForm(data.questions[0],data.questions.length);
-        while (hasNextQuestion(data.questions,questionsCounter)) {
-            questionsArray.push(data.questions[questionsCounter]);
-            questionsCounter++; 
-        }
+        getQuestionsData(data);
+        runQuiz(data);
     });
 }
-runQuiz(); 
+
+
+getDataAndRunQuiz(); 
+
 
 formEl.addEventListener('submit', (event) => {
     event.preventDefault();
-    let userAnswer = String(extractAnswersListValue(formEl.elements[FIELD_NAME]));
-
-    let checkUserAnswer = checkTheAnswer(userAnswer,questionsArray[clickQuestionsCounter-1].answer); 
-    allResults[String(clickQuestionsCounter)] = String(checkUserAnswer);
-    if (!validateInput(userAnswer)) {
-        if (countWarnings) {
-            formEl.insertAdjacentHTML('afterend', '<strong class="error">*Введите ответ корректно</strong>');  
-            countWarnings = false;  
-        }
+    let userAnswer = toString(extractAnswersListValue(formEl.elements[FIELD_NAME]));
+    addAnswerToFinalResults(userAnswer);
+    if (!inputValidation(userAnswer)) {
+        addWarning(formEl,"Введите ответ корректно");
     }
     else {
-        if (hasNextQuestion(questionsArray,clickQuestionsCounter)) {
-            generateDynamicForm(questionsArray[clickQuestionsCounter],questionsCounter);
-            clickQuestionsCounter++; 
-            if (questionBlock.children.length > 1) {
-                questionBlock.children[1].innerHTML = '';
-            } 
+        if (hasNextQuestion(questionsArray,resultsDataLength(allResults))) {
+            showNextQuestion(questionsArray);
         }
         else {
             showTable(allResults);
         }
-        countWarnings = true;
+    } 
+});
+
+formEl.addEventListener('reset', (event) => {
+    event.preventDefault();
+    let answer = currentAnswers[currentAnswers.length-1];
+    if (hasNextQuestion(questionsArray,resultsDataLength(allResults)-1)) {
+        rewriteData(allResults,currentAnswers);
+        showPrevQuestion(questionsArray,answer);
     }   
+    else {
+        addWarning(formEl,"Нет предыдущего вопроса");
+    }
 });

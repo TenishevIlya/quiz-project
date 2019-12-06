@@ -91,15 +91,19 @@
   -webkit-appearance: none;
   position: absolute;
   
-  &:checked + .checkbox-variant, &:checked + .radio-variant {
+  &:checked + .checkbox-case {
     background-color: #4A90E2;
   	background-image: url(../../images/check.svg); 
   } 
+
+  &:checked + .radio-case {
+    background-color: #4A90E2;  
+  }
 }
-.checkbox-variant {
+.checkbox-case {
   @include check-items();		
 }
-.radio-variant {
+.radio-case {
   @include check-items();	
   border-radius: 0.6em; 
 }
@@ -109,12 +113,6 @@
   color: red;
 }
 
-/* .custom-table {
-  border: 1px solid black;
-  &:tr {
-    border: 1px solid black;
-  }
-} */
 .custom-table {
   width: 500px;
   margin: 50px auto; 

@@ -78,11 +78,13 @@
 .checkbox-input, .radio-input {
   -webkit-appearance: none;
   position: absolute; }
-  .checkbox-input:checked + .checkbox-variant, .checkbox-input:checked + .radio-variant, .radio-input:checked + .checkbox-variant, .radio-input:checked + .radio-variant {
+  .checkbox-input:checked + .checkbox-case, .radio-input:checked + .checkbox-case {
     background-color: #4A90E2;
     background-image: url(../../images/check.svg); }
+  .checkbox-input:checked + .radio-case, .radio-input:checked + .radio-case {
+    background-color: #4A90E2; }
 
-.checkbox-variant {
+.checkbox-case {
   position: absolute;
   margin-left: -1em;
   width: 0.6em;
@@ -91,7 +93,7 @@
   background-color: #FFFFFF;
   border: 2px solid #0080FF; }
 
-.radio-variant {
+.radio-case {
   position: absolute;
   margin-left: -1em;
   width: 0.6em;
@@ -105,12 +107,6 @@
 .error {
   color: red; }
 
-/* .custom-table {
-  border: 1px solid black;
-  &:tr {
-    border: 1px solid black;
-  }
-} */
 .custom-table {
   width: 500px;
   margin: 50px auto;

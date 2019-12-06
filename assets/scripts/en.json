@@ -1,5 +1,6 @@
 {
 	"MAIN": "Main",
+	"TEST_ME": "TestMe.ru",
 	"MY_TESTS": "My tests",
 	"STATISTICS": "Statistics",
 	"SETTINGS": "Settings",
@@ -43,5 +44,6 @@
 	"REQUIRED": "*Required",
 	"REMEMBER_ME": "Remember me",
 	"ADD_EMAIL": "Email",
-	"ADD_PASSWORD": "Password"
+	"ADD_PASSWORD": "Password",
+	"TEST_VERSION": "Quiz text version"
 }
