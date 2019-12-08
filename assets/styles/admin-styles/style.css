@@ -1,20 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@TenishevIlya 
-1
-01TenishevIlya/quiz-project
- Code Issues 0 Pull requests 3 Actions Projects 0 Wiki Security Insights Settings
-quiz-project/assets/styles/admin-styles/style.css
-@TenishevIlya TenishevIlya admin fixes and folders added
-6fd0f96 on 6 Oct
-202 lines (186 sloc)  3.05 KB
-  
 body, input, button, a, span {
   font-family: 'Roboto', sans-serif;	
 }
