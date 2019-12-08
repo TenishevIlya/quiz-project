@@ -215,7 +215,7 @@ function generateDynamicForm(element,elementsSize) {
 }
 
 function generatePrevSelect(selectHTML,element,prevAnswer) {
-    controlEl = new SelectControl(element); 
+    let controlEl = new SelectControl(element); 
         for (let answer of element.answers) {
             if (toString(prevAnswer) === answer.value) {
                 selectHTML += controlEl.generateSelectedOption(answer.title,prevAnswer);
