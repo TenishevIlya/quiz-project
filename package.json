@@ -10,7 +10,8 @@
     "build:css": "node-sass assets/styles/public-styles/style.scss  assets/dist/styles/style.css",
     "dev:css": "node-sass -w assets/styles/public-styles/style.scss -o assets/dist/styles",
     "buildProject:css": "node-sass assets/styles/public-styles/style.scss  assets/styles/public-styles/style.css",
-    "devProject:css": "node-sass -w assets/styles/public-styles/style.scss -o assets/styles/public-styles/style.css"
+    "devProject:css": "node-sass -w assets/styles/public-styles/style.scss -o assets/styles/public-styles/style.css",
+    "eslint": "npx eslint assets/scripts/"
   },
   "repository": {
     "type": "git",

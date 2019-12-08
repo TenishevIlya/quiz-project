@@ -22,7 +22,7 @@
     	},	
     	{
             "id" : 2,    
-    		"type" : "radio",
+    		"type" : "select",
     		"question_text" : "Сколько типов данных есть в JS?",
     		"answer" : "6",
     		"answers" : [
@@ -91,15 +91,15 @@
     		"answer" : ["function declaration", "function expression"],
     		"answers" : [
             	{
-            		"title" : "Function Declaration",
+            		"title" : "function declaration",
             		"value" : "function_declaration"
             	},
             	{
-                	"title" : "Function Expression",
+                	"title" : "function expression",
             		"value" : "function_expression" 
             	},
             	{
-            		"title" : "Function Statement",
+            		"title" : "function statement",
             		"value" : "function_statement"
             	}
     		]

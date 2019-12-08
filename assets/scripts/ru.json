@@ -1,5 +1,6 @@
 {
 	"MAIN": "Главная",
+	"TEST_ME": "Тест.ру",
 	"MY_TESTS": "Мои тесты",
 	"STATISTICS": "Статистика",
 	"SETTINGS": "Настройки",
@@ -43,5 +44,6 @@
 	"REQUIRED": "*Обязательно",
 	"REMEMBER_ME": "Запомнить меня",
 	"ADD_EMAIL": "Почта",
-	"ADD_PASSWORD": "Пароль"
+	"ADD_PASSWORD": "Пароль",
+	"TEST_VERSION": "Тестовая версия квиза"
 }
