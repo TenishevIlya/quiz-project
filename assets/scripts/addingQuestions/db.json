@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "type": "radio",
+      "question_text": "Сколько мне лет?",
+      "answer": "20",
+      "answers": [
+        {
+          "title": "20",
+          "value": "20"
+        },
+        {
+          "title": "19",
+          "value": "19"
+        },
+        {
+          "title": "10",
+          "value": "10"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "type": "radio",
+      "question_text": "asd",
+      "answer": "as",
+      "answers": [
+        {
+          "title": "as",
+          "value": "as"
+        },
+        {
+          "title": "ds",
+          "value": "ds"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "type": "text",
+      "question_text": "asdasd",
+      "answer": "asd",
+      "answers": [
+        {
+          "title": "asd",
+          "value": "asd"
+        }
+      ],
+      "id": 5
+    }
+  ]
+}

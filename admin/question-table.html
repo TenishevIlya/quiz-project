@@ -27,12 +27,13 @@
     	  <div class="container">
         	  <h1 data-translate="QUESTION_TABLE">Таблица вопросов</h1>
         	  <a href="edit.html" class="btn btn-outline-primary rounded-pill add-quest"><i class="fas fa-plus"></i><span>Добавить вопрос</span></a>  
-        	  <table class="table table-bordered table-responsive">
+              <div class="tableArea"></div>
+              <!-- <table class="table table-bordered table-responsive">
       	    <thead>
       	      <tr>
         	        <th scope="col" data-translate="ID">Номер</th>
         	        <th scope="col" data-translate="QUESTION">Вопрос</th>
-        	        <th scope="col" data-translate="DATE">Дата</th>
+        	        <th scope="col" data-translate="TYPE">Тип</th>
         	        <th scope="col" data-translate="ANSWER">Ответ</th>
         	        <th scope="col" data-translate="ACTIONS">Действия</th>
       	      </tr>
@@ -86,19 +87,67 @@
         	        <td>23.09.2019</td>
         	        <td>Promise</td>
         	        <td>
-                      <a href="#" class="btn btn-outline-primary rounded-pill question-table-link">
+                       <a href="#" class="btn btn-outline-primary rounded-pill question-table-link">
                           <i class="far fa-edit"></i>
-                      </a>
+                      </a> 
                       <a href="#" class="btn btn-outline-danger rounded-pill question-table-link">
                           <i class="far fa-trash-alt"></i>
                       </a>
                   </td>
       	      </tr>
               </tbody>
-            </table>
+            </table> -->
+            <!-- <form id="editQuestion">
+                <div class="col-container">
+                  	<label for="question" class="font-weight-bold">Вопрос:</label>
+                  	<textarea class="form-control" name="questionText" id="question"></textarea>
+                </div>
+                <hr>
+                <div class="col-container add">
+                    <label for="check-form" class="font-weight-bold">Прикрепить теги:</label> 	
+                	  <div class="form-check" id="check-form">	
+                  		  <input type="checkbox" class="form-check-input" id="first">
+                  		  <label class="form-check-label" for="first">
+                  	        #first
+                  	   </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="second">
+                		    <label class="form-check-label" for="second">
+                	          #second
+                	      </label>
+            	      </div> 
+              	    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="third">
+              		      <label class="form-check-label" for="third">
+              	            #third
+              	        </label>
+              	    </div>
+                </div>
+                <hr>	
+                <div class="row-container">
+              	    <div class="col-container answ"> 
+                	      <label class="font-weight-bold">Виды ответов:</label>
+                	      <select class="form-control">
+                  	        <option selected>Единственный ответ</option>
+                  	        <option>Множественный ответ</option>	
+                  	        <option>Текстовый</option>
+                	      </select>	
+              	    </div>
+              	    <div class="col-container answ"> 
+                	      <label for="answer" class="font-weight-bold">Ответ:</label>
+                	      <textarea id="answer" name="answerText" class="form-control"></textarea>	
+              	    </div>
+                </div>
+                <hr>
+                 <a href="#" class="btn btn-outline-primary">Добавить вопрос</a> 
+                <button type="submit" class="btn btn-outline-primary submit-btn addQuestion">Добавить вопрос</button>
+            </form> -->
         </div>
     </main>
 
-    <script src="../assets/scripts/multilingual-changer.js"></script>
+    <!-- <script src="../assets/scripts/multilingual-changer.js"></script> -->
+    <!-- <script src="../assets/scripts/addingQuestions/addQuestion.js"></script> -->
+    <script src="../assets/scripts/addingQuestions/outputQuestions.js"></script>
 </body>
 </html>

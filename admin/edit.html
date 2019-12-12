@@ -27,55 +27,39 @@
         <div class="container edit-container">
             <h2 data-translate="QUESTION_ADDING">Добавление вопроса</h2>
             <hr>	
-            <form>
+            <form id="editQuestion">
                 <div class="col-container">
+                    <label for="whichTest" class="font-weight-bold">В какой тест добавить:</label>
+                    <input type="text" id="whichTest" class="form-control testName">
                   	<label for="question" class="font-weight-bold">Вопрос:</label>
-                  	<textarea class="form-control" id="question"></textarea>
-                </div>
-                <hr>
-                <div class="col-container add">
-                    <label for="check-form" class="font-weight-bold">Прикрепить теги:</label> 	
-                	  <div class="form-check" id="check-form">	
-                  		  <input type="checkbox" class="form-check-input" id="first">
-                  		  <label class="form-check-label" for="first">
-                  	        #first
-                  	   </label>
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="second">
-                		    <label class="form-check-label" for="second">
-                	          #second
-                	      </label>
-            	      </div> 
-              	    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="third">
-              		      <label class="form-check-label" for="third">
-              	            #third
-              	        </label>
-              	    </div>
+                    <textarea class="form-control" name="questionText" id="question"></textarea>
                 </div>
                 <hr>	
                 <div class="row-container">
               	    <div class="col-container answ"> 
                 	      <label class="font-weight-bold">Виды ответов:</label>
-                	      <select class="form-control">
-                  	        <option selected>Единственный ответ</option>
-                  	        <option>Множественный ответ</option>	
-                  	        <option>Текстовый</option>
+                	      <select class="form-control types">
+                            <option selected value="text">Текстовый</option> 
+                            <option value="checkbox">Множественный ответ</option>
+                            <option value="radio">Одиночный ответ</option>
+                            <option value="select">Список с ответами</option>  	
                 	      </select>	
               	    </div>
               	    <div class="col-container answ"> 
                 	      <label for="answer" class="font-weight-bold">Ответ:</label>
-                	      <textarea id="answer" class="form-control"></textarea>	
+                	      <textarea id="answer" name="answerText" class="form-control"></textarea>	
               	    </div>
                 </div>
+                <div class="answersArea"></div>
                 <hr>
                 <!-- <a href="#" class="btn btn-outline-primary">Добавить вопрос</a> -->
-                <button type="submit" class="btn btn-outline-primary submit-btn">Добавить вопрос</button>
+                <button type="submit" class="btn btn-outline-primary submit-btn addQuestion">Добавить вопрос</button>
             </form>
         </div>
     </main>
 
-    <script src="../assets/scripts/multilingual-changer.js"></script>	
+    <!-- <script src="../assets/scripts/multilingual-changer.js"></script>	 -->
+    <script src="../assets/scripts/addingQuestions/addQuestion.js"></script>
+    <!-- <script src="../assets/scripts/addingQuestions/possibleAnswersGeneration.js"></script> -->
 </body>
 </html>

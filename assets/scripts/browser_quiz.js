@@ -381,7 +381,7 @@ function runQuiz(data) {
 
 
 function getDataAndRunQuiz() {
-    fetch("../assets/scripts/sample.json")
+    fetch("../assets/scripts/addingQuestions/db.json")
     .then((resp) => {
 	   	return resp.json();
 	})
