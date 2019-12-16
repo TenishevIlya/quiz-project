@@ -11,6 +11,8 @@
     "dev:css": "node-sass -w assets/styles/public-styles/style.scss -o assets/dist/styles",
     "buildProject:css": "node-sass assets/styles/public-styles/style.scss  assets/styles/public-styles/style.css",
     "devProject:css": "node-sass -w assets/styles/public-styles/style.scss -o assets/styles/public-styles/style.css",
+    "server": "npx lite-server -c front-server.config.json",
+    "json-server": "npx json-server --watch assets/scripts/addingQuestions/db.json --port 3000",
     "eslint": "npx eslint assets/scripts/",
     "buildModules": "browserify assets/scripts/addingQuestions/addQuestion.js -o  assets/scripts/addingQuestions/outputQuestions.js"
   },

@@ -1,4 +1,3 @@
-//(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 class RestService {
     get apiUrl() {
         return 'http://localhost:3000/';
@@ -33,19 +32,34 @@ function generateConfirm() {
     return confirm("Удалить вопрос?");
 }
 
+function toNumber(value) {
+    return Number(value);
+}
+
+function areAllPositionsCorrect(data) {
+    let flag = true;
+    let currentId = 0;
+    for (let elem of data) {
+        if ((elem.id - currentId) > 1) {
+            flag = false;
+            break;
+        }
+        currentId = elem.id;
+    }
+    return flag;
+}  
+
 function removePost(id) {
     let sureToDelete = generateConfirm();
     if (sureToDelete) {
-        restService.remove(`questions/${id}`).then(
-            () => printAll()
-        );
+        restService.remove(`questions/${id}`).then(() => document.location.href = 'question-table.html');
     }
 }
 
-function generateRow(id,{question_text, answer}) {
+function generateRow(number,{question_text, id, answer}) {
     return `
         <tr>
-            <th scope="row">${id}</th>
+            <th scope="row">${number}</th>
             <td>${question_text}</td>
             <td>${answer}</td>
             <td>
@@ -57,10 +71,11 @@ function generateRow(id,{question_text, answer}) {
     `;
 }
 
-function generateTable(rows) {
+function generateTable(tableTitle, rows) {
     return `
-    <table class="table table-responsive">
-      	<thead>
+    <h2>${tableTitle}</h2>   
+    <table class="table table-responsive">   
+        <thead>
       	    <tr>
                 <th scope="col" data-translate="ID">Номер</th>
                 <th scope="col" data-translate="QUESTION">Вопрос</th>
@@ -75,33 +90,57 @@ function generateTable(rows) {
     `
 }
 
-// fetch('http://localhost:3000/questions').then((response) => {
-//         return response.json();
-//     }).then((data) => {
-//         let elems = [];
-//         let countElems = 0;
-//         for (let elem in data) {
-//             elems.push(elem);
-//         }
-//         for (let elem of data) {
-//             elem.id = elems[countElems]+1;
-//             countElems++;
-//         }
-//     })
+function getAllTestTitles(data,allTestsNames) {
+    for (let elem of data) {
+        if (allTestsNames.indexOf(elem.testTitle) === -1) {
+            allTestsNames.push(elem.testTitle);
+        }
+    }
+}
+
+function generateRowsForCurrentTest(data,rows,counter,currentTitle) {
+    for (let elem of data) {
+        if (elem.testTitle === currentTitle) {
+            counter++;
+            rows += generateRow(counter,elem);
+        }
+    }    
+    return rows;
+}
+
+function addTablesToHTML(allTestsNames, allTables) {
+    for (let i = 0; i < allTestsNames.length; i++) {  
+        let testContainer = document.createElement("div");
+        dataEl.append(testContainer);
+        testContainer.innerHTML = generateTable(allTestsNames[i],allTables[i]);    
+    }
+}
+
+function generateTablesForEachTest(allTestsNames,data) {
+    let allTables = [];
+    for (let title of allTestsNames) {
+
+        let rows = '';
+        let result = '';
+        let countCurrentTestQuestions = 0;
+
+        rows += generateRowsForCurrentTest(data,result,countCurrentTestQuestions,title);
+        allTables.push(rows);
+    } 
+    return allTables;   
+}
+
 
 function printAll() {
     restService.getAll(`questions/`).then(
         (data) => {
-            let elems = [];
-            let countElems = 0;
-            for (let elem in data) {
-                elems.push(elem);
-            }
-            let rows = data.map((item) => generateRow(item.id,item)).join('');
-            dataEl.innerHTML = generateTable(rows);
+            let allTestsNames = [];
+            getAllTestTitles(data,allTestsNames);
+            let allTables = generateTablesForEachTest(allTestsNames,data);
+            addTablesToHTML(allTestsNames,allTables);
         }
     );
 }
 
+
 printAll();
-//},{}]},{},[1]);

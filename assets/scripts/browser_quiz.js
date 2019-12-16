@@ -3,6 +3,29 @@ const questionBlock = document.querySelector('.question');
 const formEl = document.querySelector('.js-form');
 const controlWrapperEl = formEl.querySelector('.js-form-control');
 const FIELD_NAME = "answer";
+const testUrlEndpoint = localStorage.getItem("endpoint");
+
+
+class Counter {
+
+    constructor(counter) {
+        this.counter = counter;
+    }
+
+    icrementCounter() {
+        return this.counter++;
+    }
+
+    decrementCounter() {
+        return this.counter--;
+    }
+
+    getCounter() {
+        return this.counter;
+    }
+}
+
+let counter = new Counter(0);
 
 /* data containers */
 let questionsArray = [];
@@ -103,7 +126,7 @@ function showQuestion(data,direction,answer) {
 }
 
 
-function generateControlContainer({question_text,id,type},control,size) {
+function generateControlContainer({question_text,type},control,size,id) {
     return `
         <h1 class="" data-translate="QUESTION_№${id}"> Вопрос: №${id} </h1>
         <p class="question-content"> ${question_text} </p>
@@ -210,7 +233,8 @@ function generateDynamicForm(element,elementsSize) {
             controlHTML += controlEl.generateInputTypedControl(answer.title,answer.value);
         }
     }
-    let container = generateControlContainer(element,controlHTML,elementsSize);
+    let container = generateControlContainer(element,controlHTML,elementsSize,counter.getCounter()+1);
+    counter.icrementCounter();
     attachToForm(container);
 }
 
@@ -278,7 +302,8 @@ function generateDynamicFilledForm(element,elementsSize,prevAnswer) {
             controlHTML += generatePrevRadios(element,controlEl,prevAnswer);
         }
     }
-    let container = generateControlContainer(element,controlHTML,elementsSize);
+    counter.decrementCounter();
+    let container = generateControlContainer(element,controlHTML,elementsSize,counter.getCounter());
     attachToForm(container);
 }
 
@@ -357,11 +382,11 @@ function showTable(obj) {
 
 
 function getQuestionsData(data) {
-    let questionsCounter = 0;
-    while (hasNextQuestion(data.questions,questionsCounter)) {
-        questionsArray.push(data.questions[questionsCounter]);
-        questionsCounter++; 
-    }    
+    for (let elem in data) {
+        if (hasNextQuestion(data,elem)) {
+            questionsArray.push(data[elem]);    
+        } 
+    }
 }
 
 function addWarning(formElement,warningMessage) {
@@ -375,19 +400,44 @@ function hideUnwantedWarnings(domElem,index) {
     }   
 }
 
-function runQuiz(data) {
-    generateDynamicForm(data.questions[0],data.questions.length);    
+function runQuiz(length,dataFirst) {
+    generateDynamicForm(dataFirst,length);        
 }
 
+function getIntermediateDataAndCountEls(data, currentTestData,counter) {
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].testTitle === testUrlEndpoint) {
+            currentTestData[i] = data[i];
+            counter++;
+        }
+    } 
+    return counter;   
+}
+
+function getCorrectData(data,currentTestData,finalData,countElements) {
+    for (let i = 0; i < countElements; i++) {
+        for (let j = 0; j < data.length; j++) {
+            if (currentTestData[j] !== undefined) {
+                finalData[i] = currentTestData[j];
+                break;
+            }
+        }
+    }
+}
 
 function getDataAndRunQuiz() {
-    fetch("../assets/scripts/addingQuestions/db.json")
+    fetch("http://localhost:3000/questions")
     .then((resp) => {
 	   	return resp.json();
 	})
 	.then((data) => {
-        getQuestionsData(data);
-        runQuiz(data);
+        let currentTestData = {};
+        let finalData = {};
+        let countElements = 0;
+        countElements = getIntermediateDataAndCountEls(data, currentTestData,countElements);
+        getCorrectData(data,currentTestData,finalData,countElements);
+        getQuestionsData(currentTestData);
+        runQuiz(countElements,finalData[0]);
     });
 }
 
