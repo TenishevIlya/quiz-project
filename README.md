@@ -1,7 +1,7 @@
 # Quiz-project
-Квиз система c возможностью администрирования и публичного использования
+Quiz system with possibility of administration and public usage
 
-# Деплой
+# Deploy
 
 ### Run project
 `npm run server`
