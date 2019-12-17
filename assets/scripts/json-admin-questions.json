@@ -1,0 +1,24 @@
+{
+    "myFirstTest":[
+        {
+            "id": 1,
+            "question_text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+            "type": "radio",
+            "answer" : "1995",
+    		"answers" : [
+            	{
+            		"title" : "1996",
+            		"value" : "1996"
+            	},
+            	{
+                	"title" : "1995",
+            		"value" : "1995" 
+            	},
+            	{
+            		"title" : "1999",
+            		"value" : "1999"
+            	}
+    		]
+        }
+    ]
+}

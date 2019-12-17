@@ -1,0 +1,24 @@
+{
+  "posts": [
+    {
+      "name": "asd",
+      "surname": "asd",
+      "id": 3
+    },
+    {
+      "name": "asd",
+      "surname": "as",
+      "id": 4
+    },
+    {
+      "name": "asf",
+      "surname": "Smith",
+      "id": 5
+    }
+  ],
+  "comments": [],
+  "forms": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

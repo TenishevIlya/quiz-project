@@ -1,20 +1,23 @@
 # Quiz-project
-Квиз система c возможностью администрирования и публичного использования
+Quiz system with possibility of administration and public usage
 
-# Деплой
+# Deploy
 
-### Запуск проекта
-`npm start`
+### Run project
+`npm run server`
 
-### Компиляция js и scss
+## Run json-server
+`npm run json-server`
+
+### Compiling js and scss
 `npm run build:js`
 
 `npm run build:css`
 
-### Отслеживание изменений js и css
+### Search js and css changes
 `npm run dev:js`
 
 `npm run dev:css`
 
-## Запуск линтера
+## Run linter
 `npx eslint filename.js`

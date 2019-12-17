@@ -18,3 +18,20 @@ let tab_one = document.getElementById("first-tab");
 let tab_two = document.getElementById("second-tab");
 tab_one.addEventListener('click', change_to_tab1); 
 tab_two.addEventListener('click', change_to_tab2); 
+
+
+let allTestsBtns = document.querySelectorAll('.showThisTest');
+let firstSpheres = document.querySelector('.first-spheres');
+let secondSpheres = document.querySelector('.second-spheres');
+
+firstSpheres.onclick = function() {
+	let target = event.target;
+	localStorage.setItem("endpoint",target.getAttribute('data-endpoint'));
+	window.location = 'quiz_test_version.html';
+}
+
+secondSpheres.onclick = function(event) {
+	let target = event.target;
+	localStorage.setItem("endpoint",target.getAttribute('data-endpoint'));
+	window.location = 'quiz_test_version.html';
+}

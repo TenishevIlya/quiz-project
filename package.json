@@ -11,7 +11,10 @@
     "dev:css": "node-sass -w assets/styles/public-styles/style.scss -o assets/dist/styles",
     "buildProject:css": "node-sass assets/styles/public-styles/style.scss  assets/styles/public-styles/style.css",
     "devProject:css": "node-sass -w assets/styles/public-styles/style.scss -o assets/styles/public-styles/style.css",
-    "eslint": "npx eslint assets/scripts/"
+    "server": "npx lite-server -c front-server.config.json",
+    "json-server": "npx json-server --watch assets/scripts/addingQuestions/db.json --port 3000",
+    "eslint": "npx eslint assets/scripts/",
+    "buildModules": "browserify assets/scripts/addingQuestions/addQuestion.js -o  assets/scripts/addingQuestions/outputQuestions.js"
   },
   "repository": {
     "type": "git",
@@ -29,6 +32,9 @@
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
+    "babel-core": "^6.26.3",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0",
     "eslint": "^6.7.1",
     "jasmine-console-reporter": "^3.1.0",
     "lite-server": "^2.5.4",
